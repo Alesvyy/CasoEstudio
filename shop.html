@@ -1,0 +1,609 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Ratones para gaming - TechStore" />
+    <title>Ratones Gaming | TechStore</title>
+
+    <!-- Google Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet" />
+    <!-- Bootstrap 5 CSS -->
+    <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Custom brand styles (overrides Bootstrap where needed) -->
+    <link rel="stylesheet" href="dist/css/main.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <nav class="header-nav">
+        <div class="container">
+          <div class="nav-content">
+            <div class="nav-left">
+              <a href="index.html" class="logo">
+                <img
+                  src="./assets/logo-teknovation.png"
+                  alt="logo"
+                  height="48"
+                />
+              </a>
+
+              <ul class="nav-menu">
+                <li><a href="shop.html">Tienda</a></li>
+                <li class="nav-highlight"><a href="#">Ofertas</a></li>
+              </ul>
+            </div>
+
+            <div class="header-actions">
+              <button class="icon-btn" id="searchBtn" aria-label="Buscar"
+                      data-bs-toggle="modal" data-bs-target="#searchModal">
+                <span class="material-icons">search</span>
+              </button>
+              <button class="icon-btn" id="wishlistBtn" aria-label="Favoritos">
+                <span class="material-icons">favorite_border</span>
+              </button>
+              <a href="auth.html" class="icon-btn" aria-label="Mi cuenta" id="accountBtn">
+                <span class="material-icons">person_outline</span>
+              </a>
+              <button class="icon-btn cart-btn" aria-label="Carrito"
+                      data-bs-toggle="offcanvas" data-bs-target="#cartDrawer"
+                      aria-controls="cartDrawer">
+                <span class="material-icons">shopping_cart</span>
+                <span class="cart-count">0</span>
+              </button>
+            </div>
+
+            <button class="mobile-menu-toggle" aria-label="Menú">
+              <span class="material-icons">menu</span>
+            </button>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+      <div class="container">
+        <nav aria-label="breadcrumb">
+          <ol>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="shop.html">Tienda</a></li>
+            <li aria-current="page">Ratones Gaming</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Shop Section -->
+    <section class="shop-section">
+      <div class="container">
+        <!-- Shop Header -->
+        <div class="shop-header">
+          <div class="shop-header-content">
+            <h1>Ratones para Gaming</h1>
+            <p>
+              Desarrollamos ratones para gaming galardonados, tanto inalámbricos
+              como con cable. Innovamos constantemente para ofrecerte el modelo
+              perfecto.
+            </p>
+          </div>
+        </div>
+
+        <!-- Product Count -->
+        <div class="shop-results-header">
+          <div class="shop-results">
+            <span id="productCount">16</span> productos encontrados
+          </div>
+        </div>
+
+        <!-- Shop Content -->
+        <div class="shop-content">
+          <!-- Filters Sidebar -->
+          <aside class="filters-sidebar" id="filtersSidebar">
+            <div class="filters-header">
+              <h3>Filtros</h3>
+              <button class="btn-close-filters" id="closeFilters">
+                <span class="material-icons">close</span>
+              </button>
+            </div>
+
+            <div class="filter-group">
+              <h4>Ordenar por</h4>
+              <select id="sortSelect" class="sort-select-sidebar">
+                <option value="featured">Destacado</option>
+                <option value="newest">Nuevo</option>
+                <option value="name">Nombre</option>
+                <option value="price-desc">Precio - Mayor a menor</option>
+                <option value="price-asc">Precio - Menor a mayor</option>
+                <option value="bestseller">Superventas</option>
+              </select>
+            </div>
+
+            <div class="filter-group">
+              <h4>Conectividad</h4>
+              <div class="filter-options">
+                <label class="filter-option">
+                  <input type="checkbox" name="connectivity" value="wireless" />
+                  <span>Inalámbrico</span>
+                </label>
+                <label class="filter-option">
+                  <input type="checkbox" name="connectivity" value="wired" />
+                  <span>Con cable</span>
+                </label>
+                <label class="filter-option">
+                  <input
+                    type="checkbox"
+                    name="connectivity"
+                    value="bluetooth"
+                  />
+                  <span>Bluetooth</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="filter-group">
+              <h4>Serie</h4>
+              <div class="filter-options">
+                <label class="filter-option">
+                  <input type="checkbox" name="series" value="pro" />
+                  <span>PRO Series</span>
+                </label>
+                <label class="filter-option">
+                  <input type="checkbox" name="series" value="g5" />
+                  <span>G5 Series</span>
+                </label>
+                <label class="filter-option">
+                  <input type="checkbox" name="series" value="astro" />
+                  <span>ASTRO Series</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="filter-group">
+              <h4>Precio</h4>
+              <div class="filter-options">
+                <label class="filter-option">
+                  <input type="checkbox" name="price" value="0-50" />
+                  <span>Menos de 50€</span>
+                </label>
+                <label class="filter-option">
+                  <input type="checkbox" name="price" value="50-100" />
+                  <span>50€ - 100€</span>
+                </label>
+                <label class="filter-option">
+                  <input type="checkbox" name="price" value="100-150" />
+                  <span>100€ - 150€</span>
+                </label>
+                <label class="filter-option">
+                  <input type="checkbox" name="price" value="150+" />
+                  <span>Más de 150€</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="filter-group">
+              <h4>Características</h4>
+              <div class="filter-options">
+                <label class="filter-option">
+                  <input type="checkbox" name="features" value="rgb" />
+                  <span>Iluminación RGB</span>
+                </label>
+                <label class="filter-option">
+                  <input
+                    type="checkbox"
+                    name="features"
+                    value="wireless-charging"
+                  />
+                  <span>Carga inalámbrica</span>
+                </label>
+                <label class="filter-option">
+                  <input type="checkbox" name="features" value="programmable" />
+                  <span>Botones programables</span>
+                </label>
+                <label class="filter-option">
+                  <input type="checkbox" name="features" value="ambidextrous" />
+                  <span>Ambidiestro</span>
+                </label>
+              </div>
+            </div>
+
+            <button class="btn btn-secondary btn-clear-filters">
+              Limpiar Filtros
+            </button>
+          </aside>
+
+          <!-- Products Grid -->
+          <div class="products-grid" id="productsGrid">
+            <!-- Product Card 1 -->
+            <div
+              class="product-card"
+              data-series="pro"
+              data-price="179.99"
+              data-connectivity="wireless"
+            >
+              <a href="product.html?id=pro-x2-superstrike" class="product-link">
+                <div class="product-badge">Nuevo</div>
+                <div class="product-image">
+                  <div class="product-image-placeholder">
+                    <span class="material-icons">mouse</span>
+                  </div>
+                </div>
+                <div class="product-info">
+                  <h3 class="product-name">PRO X2 SUPERSTRIKE</h3>
+                  <p class="product-subtitle">
+                    Ratón inalámbrico LIGHTSPEED para gaming
+                  </p>
+                  <div class="product-price">
+                    <span class="price-current">179,99 €</span>
+                  </div>
+                  <div class="product-status out-of-stock">
+                    Agotado temporalmente
+                  </div>
+                </div>
+              </a>
+              <div class="product-actions">
+                <button class="btn-icon" aria-label="Añadir a favoritos">
+                  <span class="material-icons">favorite_border</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Product Card 2 -->
+            <div
+              class="product-card"
+              data-series="pro"
+              data-price="159.99"
+              data-connectivity="wireless"
+            >
+              <a href="product.html?id=pro-x-superlight-2" class="product-link">
+                <div class="product-badge badge-offer">-15%</div>
+                <div class="product-image">
+                  <div class="product-image-placeholder">
+                    <span class="material-icons">mouse</span>
+                  </div>
+                </div>
+                <div class="product-info">
+                  <h3 class="product-name">PRO X SUPERLIGHT 2</h3>
+                  <p class="product-subtitle">Ratón inalámbrico para gaming</p>
+                  <div class="product-price">
+                    <span class="price-current">159,99 €</span>
+                    <span class="price-original">189,00 €</span>
+                  </div>
+                </div>
+              </a>
+              <div class="product-actions">
+                <button
+                  class="btn btn-primary btn-add-cart"
+                  data-product-id="pro-x-superlight-2"
+                >
+                  <span class="material-icons">shopping_cart</span>
+                  Añadir al carrito
+                </button>
+                <button class="btn-icon" aria-label="Añadir a favoritos">
+                  <span class="material-icons">favorite_border</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Product Card 3 -->
+            <div
+              class="product-card"
+              data-series="pro"
+              data-price="145.00"
+              data-connectivity="wireless"
+            >
+              <a href="product.html?id=pro-2-lightspeed" class="product-link">
+                <div class="product-image">
+                  <div class="product-image-placeholder">
+                    <span class="material-icons">mouse</span>
+                  </div>
+                </div>
+                <div class="product-info">
+                  <h3 class="product-name">PRO 2 LIGHTSPEED</h3>
+                  <p class="product-subtitle">Ratón inalámbrico ambidiestro</p>
+                  <div class="product-price">
+                    <span class="price-current">145,00 €</span>
+                  </div>
+                </div>
+              </a>
+              <div class="product-actions">
+                <button
+                  class="btn btn-primary btn-add-cart"
+                  data-product-id="pro-2-lightspeed"
+                >
+                  <span class="material-icons">shopping_cart</span>
+                  Añadir al carrito
+                </button>
+                <button class="btn-icon" aria-label="Añadir a favoritos">
+                  <span class="material-icons">favorite_border</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Product Card 4 -->
+            <div
+              class="product-card"
+              data-series="g5"
+              data-price="119.99"
+              data-connectivity="wireless"
+            >
+              <a href="product.html?id=g502-x-plus" class="product-link">
+                <div class="product-badge badge-offer">-33%</div>
+                <div class="product-image">
+                  <div class="product-image-placeholder">
+                    <span class="material-icons">mouse</span>
+                  </div>
+                </div>
+                <div class="product-info">
+                  <h3 class="product-name">G502 X PLUS</h3>
+                  <p class="product-subtitle">Ratón inalámbrico RGB</p>
+                  <div class="product-price">
+                    <span class="price-current">119,99 €</span>
+                    <span class="price-original">179,00 €</span>
+                  </div>
+                </div>
+              </a>
+              <div class="product-actions">
+                <button
+                  class="btn btn-primary btn-add-cart"
+                  data-product-id="g502-x-plus"
+                >
+                  <span class="material-icons">shopping_cart</span>
+                  Añadir al carrito
+                </button>
+                <button class="btn-icon" aria-label="Añadir a favoritos">
+                  <span class="material-icons">favorite_border</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Product Card 5 -->
+            <div
+              class="product-card"
+              data-series="g5"
+              data-price="94.99"
+              data-connectivity="wired"
+            >
+              <a href="product.html?id=g502-x" class="product-link">
+                <div class="product-image">
+                  <div class="product-image-placeholder">
+                    <span class="material-icons">mouse</span>
+                  </div>
+                </div>
+                <div class="product-info">
+                  <h3 class="product-name">G502 X</h3>
+                  <p class="product-subtitle">Ratón con cable para gaming</p>
+                  <div class="product-price">
+                    <span class="price-current">94,99 €</span>
+                  </div>
+                </div>
+              </a>
+              <div class="product-actions">
+                <button
+                  class="btn btn-primary btn-add-cart"
+                  data-product-id="g502-x"
+                >
+                  <span class="material-icons">shopping_cart</span>
+                  Añadir al carrito
+                </button>
+                <button class="btn-icon" aria-label="Añadir a favoritos">
+                  <span class="material-icons">favorite_border</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Product Card 6 -->
+            <div
+              class="product-card"
+              data-series="g5"
+              data-price="49.99"
+              data-connectivity="wired"
+            >
+              <a href="product.html?id=g502-hero" class="product-link">
+                <div class="product-badge badge-offer">-46%</div>
+                <div class="product-image">
+                  <div class="product-image-placeholder">
+                    <span class="material-icons">mouse</span>
+                  </div>
+                </div>
+                <div class="product-info">
+                  <h3 class="product-name">G502 HERO</h3>
+                  <p class="product-subtitle">Ratón con cable</p>
+                  <div class="product-price">
+                    <span class="price-current">49,99 €</span>
+                    <span class="price-original">92,99 €</span>
+                  </div>
+                </div>
+              </a>
+              <div class="product-actions">
+                <button
+                  class="btn btn-primary btn-add-cart"
+                  data-product-id="g502-hero"
+                >
+                  <span class="material-icons">shopping_cart</span>
+                  Añadir al carrito
+                </button>
+                <button class="btn-icon" aria-label="Añadir a favoritos">
+                  <span class="material-icons">favorite_border</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Product Card 7 -->
+            <div
+              class="product-card"
+              data-series="g5"
+              data-price="74.99"
+              data-connectivity="wireless"
+            >
+              <a href="product.html?id=g305-lightspeed" class="product-link">
+                <div class="product-image">
+                  <div class="product-image-placeholder">
+                    <span class="material-icons">mouse</span>
+                  </div>
+                </div>
+                <div class="product-info">
+                  <h3 class="product-name">G305 LIGHTSPEED</h3>
+                  <p class="product-subtitle">Ratón inalámbrico para gaming</p>
+                  <div class="product-price">
+                    <span class="price-current">74,99 €</span>
+                  </div>
+                </div>
+              </a>
+              <div class="product-actions">
+                <button
+                  class="btn btn-primary btn-add-cart"
+                  data-product-id="g305-lightspeed"
+                >
+                  <span class="material-icons">shopping_cart</span>
+                  Añadir al carrito
+                </button>
+                <button class="btn-icon" aria-label="Añadir a favoritos">
+                  <span class="material-icons">favorite_border</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Product Card 8 -->
+            <div
+              class="product-card"
+              data-series="g5"
+              data-price="47.99"
+              data-connectivity="wired"
+            >
+              <a href="product.html?id=g203-lightsync" class="product-link">
+                <div class="product-image">
+                  <div class="product-image-placeholder">
+                    <span class="material-icons">mouse</span>
+                  </div>
+                </div>
+                <div class="product-info">
+                  <h3 class="product-name">G203 LIGHTSYNC</h3>
+                  <p class="product-subtitle">Ratón con cable RGB</p>
+                  <div class="product-price">
+                    <span class="price-current">47,99 €</span>
+                  </div>
+                </div>
+              </a>
+              <div class="product-actions">
+                <button
+                  class="btn btn-primary btn-add-cart"
+                  data-product-id="g203-lightsync"
+                >
+                  <span class="material-icons">shopping_cart</span>
+                  Añadir al carrito
+                </button>
+                <button class="btn-icon" aria-label="Añadir a favoritos">
+                  <span class="material-icons">favorite_border</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mobile Filters Button -->
+    <button
+      class="btn-mobile-filters"
+      id="mobileFiltersBtn"
+      aria-label="Filtros"
+    >
+      <span class="material-icons">tune</span>
+    </button>
+
+    <!-- CTA Banner -->
+    <section class="cta-banner">
+      <div class="container">
+        <div class="cta-content">
+          <h2>Explora Alfombrillas de Ratón</h2>
+          <p>Complementa tu ratón gaming con la alfombrilla perfecta</p>
+          <a href="shop.html?category=mousepads" class="btn btn-primary"
+            >Comprar Ahora</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-column">
+            <h4>TechStore</h4>
+            <ul>
+              <li><a href="#">Nuestra historia</a></li>
+              <li><a href="#">Empleo</a></li>
+              <li><a href="#">Inversores</a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Sostenibilidad</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h4>Ver Productos</h4>
+            <ul>
+              <li><a href="shop.html">Ratones Gaming</a></li>
+              <li><a href="shop.html">Teclados Gaming</a></li>
+              <li><a href="shop.html">Auriculares</a></li>
+              <li><a href="shop.html">Alfombrillas</a></li>
+              <li><a href="shop.html">Accesorios</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h4>Atención al Cliente</h4>
+            <ul>
+              <li><a href="#">Asistencia</a></li>
+              <li><a href="#">Contacto</a></li>
+              <li><a href="#">Política de devoluciones</a></li>
+              <li><a href="#">Envíos</a></li>
+              <li><a href="#">FAQ</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h4>Síguenos</h4>
+            <div class="social-links">
+              <a href="#" aria-label="Instagram">
+                <span class="material-icons">photo_camera</span>
+              </a>
+              <a href="#" aria-label="Twitter">
+                <span class="material-icons">chat</span>
+              </a>
+              <a href="#" aria-label="Facebook">
+                <span class="material-icons">public</span>
+              </a>
+              <a href="#" aria-label="YouTube">
+                <span class="material-icons">play_circle</span>
+              </a>
+            </div>
+
+            <div class="newsletter">
+              <h5>Newsletter</h5>
+              <form class="newsletter-form">
+                <input type="email" placeholder="Tu email" required />
+                <button type="submit" class="btn btn-primary">
+                  <span class="material-icons">send</span>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>&copy; 2026 TechStore. Todos los derechos reservados.</p>
+          <div class="footer-legal">
+            <a href="#">Política de Privacidad</a>
+            <a href="#">Términos de Servicio</a>
+            <a href="#">Cookies</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,130 @@
+// ============================================================
+// _mixins.sass
+// Teknovation — Sass Mixins & Functions
+// ============================================================
+@use 'variables' as v
+@use 'sass:color'
+@use 'sass:map'
+
+// --- Responsive Breakpoint Mixin ---
+// Usage: @include respond-to('md') { ... }
+@mixin respond-to($bp)
+  @if map.has-key(v.$breakpoints, $bp)
+    @media (max-width: #{map.get(v.$breakpoints, $bp)})
+      @content
+  @else
+    @warn "Unknown breakpoint: #{$bp}"
+
+// --- Flex Shorthand ---
+// Usage: @include flex-center();  @include flex-center(column, flex-start);
+@mixin flex-center($direction: row, $justify: center)
+  display: flex
+  align-items: center
+  justify-content: $justify
+  flex-direction: $direction
+
+// --- Card Hover Effect ---
+// Usage: @include card-hover();  @include card-hover(-12px, 0 20px 30px rgba(0,0,0,.15));
+@mixin card-hover($lift: -8px, $shadow: v.$shadow-lg)
+  transition: transform v.$transition-base, box-shadow v.$transition-base
+  will-change: transform
+  &:hover
+    transform: translateY($lift)
+    box-shadow: $shadow
+
+// --- Form Field Validation State ---
+// Usage: @include field-state(#00c853);
+@mixin field-state($color, $opacity: 0.05)
+  border-color: $color !important
+  background-color: rgba($color, $opacity)
+  &:focus
+    border-color: $color !important
+    box-shadow: 0 0 0 3px rgba($color, 0.2) !important
+    outline: none
+
+// --- Gradient Background ---
+// Usage: @include gradient-bg();  @include gradient-bg(#f00, #00f, 90deg);
+@mixin gradient-bg($start: v.$primary, $end: v.$secondary, $angle: 135deg)
+  background: linear-gradient($angle, $start 0%, $end 100%)
+
+// --- Text Truncation ---
+// Usage: @include truncate();  @include truncate(2);
+@mixin truncate($lines: 1)
+  @if $lines == 1
+    overflow: hidden
+    text-overflow: ellipsis
+    white-space: nowrap
+  @else
+    display: -webkit-box
+    -webkit-line-clamp: $lines
+    -webkit-box-orient: vertical
+    overflow: hidden
+
+// --- Visually Hidden (Accessible) ---
+// Usage: @include sr-only();
+@mixin sr-only
+  position: absolute
+  width: 1px
+  height: 1px
+  padding: 0
+  margin: -1px
+  overflow: hidden
+  clip: rect(0, 0, 0, 0)
+  white-space: nowrap
+  border: 0
+
+// --- Smooth Scrollbar Styling ---
+@mixin custom-scrollbar($width: 6px, $color: v.$border-color)
+  &::-webkit-scrollbar
+    width: $width
+  &::-webkit-scrollbar-track
+    background: transparent
+  &::-webkit-scrollbar-thumb
+    background: $color
+    border-radius: v.$border-radius-pill
+    &:hover
+      background: color.adjust($color, $lightness: -10%)
+      scrollbar-width: thin
+      scrollbar-color: $color transparent
+
+// --- Focus Visible Ring ---
+@mixin focus-ring($color: v.$primary)
+  &:focus-visible
+    outline: 2px solid $color
+    outline-offset: 2px
+
+// --- Placeholder Color ---
+@mixin placeholder($color: v.$text-light)
+  &::placeholder
+    color: $color
+    opacity: 1
+  &::-webkit-input-placeholder
+    color: $color
+  &::-moz-placeholder
+    color: $color
+    opacity: 1
+
+// --- Generate spacing utility classes from map ---
+// Usage: @include generate-spacers(v.$spacers);
+@mixin generate-spacers($map)
+  @each $name, $value in $map
+    .gap-#{$name}
+      gap: $value
+    .mt-#{$name}
+      margin-top: $value !important
+    .mb-#{$name}
+      margin-bottom: $value !important
+    .ms-#{$name}
+      margin-left: $value !important
+    .me-#{$name}
+      margin-right: $value !important
+    .pt-#{$name}
+      padding-top: $value !important
+    .pb-#{$name}
+      padding-bottom: $value !important
+    .ps-#{$name}
+      padding-left: $value !important
+    .pe-#{$name}
+      padding-right: $value !important
+    .p-#{$name}
+      padding: $value !important

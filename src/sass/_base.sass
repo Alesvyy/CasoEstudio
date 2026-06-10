@@ -1,0 +1,47 @@
+// ============================================================
+// _base.sass
+// Global resets, typography, and utility class generation
+// ============================================================
+@use 'variables' as v
+@use 'mixins' as m
+
+// --- Override Bootstrap's .container to use our max-width ---
+.container, .container-fluid
+  max-width: v.$container-max !important
+  padding-left: v.$container-pad !important
+  padding-right: v.$container-pad !important
+
+// --- Generate brand spacing utilities via @each loop ---
+@include m.generate-spacers(v.$spacers)
+
+// --- Smooth focus rings for accessibility ---
+a, button, input, select, textarea
+  @include m.focus-ring(v.$primary)
+
+// --- Bootstrap form-control reset to match brand ---
+.form-control, .form-select
+  font-family: v.$font-family
+  font-size: 1rem
+  border: 2px solid v.$border-color
+  border-radius: v.$border-radius-md
+  transition: border-color v.$transition-base, box-shadow v.$transition-base
+  &:focus
+    border-color: v.$primary
+    box-shadow: 0 0 0 3px rgba(v.$primary, 0.15)
+    outline: none
+  @include m.placeholder(v.$text-light)
+
+// --- Validation state classes (used by JS) ---
+.form-control
+  &.is-valid
+    @include m.field-state(v.$success)
+  &.is-invalid
+    @include m.field-state(v.$danger)
+
+// --- Utility: visually hidden ---
+.visually-hidden
+  @include m.sr-only
+
+// --- Ensure Inter font is always applied ---
+body
+  font-family: v.$font-family

@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PRO X2 SUPERSTRIKE - Ratón inalámbrico para gaming">
+    <title>PRO X2 SUPERSTRIKE | TechStore</title>
+    
+    <!-- Google Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+      <nav class="header-nav">
+        <div class="container">
+          <div class="nav-content">
+            <div class="nav-left">
+              <a href="index.html" class="logo">
+                <img src="./assets/logo-teknovation.png" alt="logo" height="48"/>
+              </a>
+
+              <ul class="nav-menu">
+                <li><a href="shop.html">Tienda</a></li>
+                <li class="nav-highlight"><a href="#">Ofertas</a></li>
+              </ul>
+            </div>
+
+            <div class="header-actions">
+              <button class="icon-btn" aria-label="Buscar">
+                <span class="material-icons">search</span>
+              </button>
+              <button class="icon-btn" aria-label="Favoritos">
+                <span class="material-icons">favorite_border</span>
+              </button>
+              <button class="icon-btn" aria-label="Mi cuenta">
+                <span class="material-icons">person_outline</span>
+              </button>
+              <button class="icon-btn cart-btn" aria-label="Carrito">
+                <span class="material-icons">shopping_cart</span>
+                <span class="cart-count">0</span>
+              </button>
+            </div>
+
+            <button class="mobile-menu-toggle" aria-label="Menú">
+              <span class="material-icons">menu</span>
+            </button>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="shop.html">Ratones Gaming</a></li>
+                    <li aria-current="page">PRO X2 SUPERSTRIKE</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Product Section -->
+    <section class="product-section">
+        <div class="container">
+            <div class="product-layout">
+                <!-- Product Gallery -->
+                <div class="product-gallery">
+                    <div class="gallery-main">
+                        <div class="gallery-image active">
+                            <div class="gallery-image-placeholder">
+                                <span class="material-icons">mouse</span>
+                            </div>
+                        </div>
+                        <div class="gallery-image">
+                            <div class="gallery-image-placeholder">
+                                <span class="material-icons">mouse</span>
+                            </div>
+                        </div>
+                        <div class="gallery-image">
+                            <div class="gallery-image-placeholder">
+                                <span class="material-icons">mouse</span>
+                            </div>
+                        </div>
+                        <div class="gallery-image">
+                            <div class="gallery-image-placeholder">
+                                <span class="material-icons">mouse</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-thumbs">
+                        <button class="thumb active" data-index="0">
+                            <div class="thumb-image-placeholder">
+                                <span class="material-icons">mouse</span>
+                            </div>
+                        </button>
+                        <button class="thumb" data-index="1">
+                            <div class="thumb-image-placeholder">
+                                <span class="material-icons">mouse</span>
+                            </div>
+                        </button>
+                        <button class="thumb" data-index="2">
+                            <div class="thumb-image-placeholder">
+                                <span class="material-icons">mouse</span>
+                            </div>
+                        </button>
+                        <button class="thumb" data-index="3">
+                            <div class="thumb-image-placeholder">
+                                <span class="material-icons">mouse</span>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Details -->
+                <div class="product-details">
+                    <div class="product-badge-series">PRO Series</div>
+                    
+                    <h1 class="product-title">PRO X2 SUPERSTRIKE</h1>
+                    <p class="product-description">Ratón inalámbrico LIGHTSPEED para gaming</p>
+                    
+                    <div class="product-rating">
+                        <div class="stars">
+                            <span class="material-icons">star</span>
+                            <span class="material-icons">star</span>
+                            <span class="material-icons">star</span>
+                            <span class="material-icons">star</span>
+                            <span class="material-icons">star_half</span>
+                        </div>
+                        <span class="rating-count">(36 reseñas)</span>
+                    </div>
+                    
+                    <div class="product-price-large">
+                        <span class="price-current">179,99 €</span>
+                    </div>
+                    
+                    <!-- Color Selector -->
+                    <div class="product-options">
+                        <div class="option-group">
+                            <label class="option-label">Color</label>
+                            <div class="color-options">
+                                <button class="color-option active" data-color="black" aria-label="Negro">
+                                    <span class="color-swatch" style="background: #000;"></span>
+                                    <span class="color-name">Negro</span>
+                                </button>
+                                <button class="color-option" data-color="white" aria-label="Blanco">
+                                    <span class="color-swatch" style="background: #fff; border: 1px solid #ddd;"></span>
+                                    <span class="color-name">Blanco</span>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Quantity Selector -->
+                        <div class="option-group">
+                            <label class="option-label">Cantidad</label>
+                            <div class="quantity-selector">
+                                <button class="qty-btn" id="qtyMinus">
+                                    <span class="material-icons">remove</span>
+                                </button>
+                                <input type="number" id="quantity" value="1" min="1" max="10" readonly>
+                                <button class="qty-btn" id="qtyPlus">
+                                    <span class="material-icons">add</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Add to Cart -->
+                    <div class="product-actions-main">
+                        <button class="btn btn-primary btn-large" id="addToCart">
+                            <span class="material-icons">shopping_cart</span>
+                            Añadir al Carrito
+                        </button>
+                        <button class="btn-icon-large" aria-label="Añadir a favoritos">
+                            <span class="material-icons">favorite_border</span>
+                        </button>
+                    </div>
+                    
+                    <!-- Product Benefits -->
+                    <div class="product-benefits">
+                        <div class="benefit-item">
+                            <span class="material-icons">local_shipping</span>
+                            <span>Envío gratuito en pedidos +39€</span>
+                        </div>
+                        <div class="benefit-item">
+                            <span class="material-icons">assignment_return</span>
+                            <span>Devoluciones fáciles - 30 días</span>
+                        </div>
+                        <div class="benefit-item">
+                            <span class="material-icons">verified_user</span>
+                            <span>2 años de garantía</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Special Offers -->
+                    <div class="product-offers">
+                        <div class="offer-card">
+                            <span class="material-icons">card_giftcard</span>
+                            <div class="offer-content">
+                                <h4>Oferta Bundle</h4>
+                                <p>Combina con teclado y auriculares y ahorra hasta 200€</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Information Tabs -->
+    <section class="product-tabs-section">
+        <div class="container">
+            <div class="tabs">
+                <div class="tabs-nav">
+                    <button class="tab-btn active" data-tab="description">Descripción</button>
+                    <button class="tab-btn" data-tab="specs">Especificaciones</button>
+                    <button class="tab-btn" data-tab="features">Características</button>
+                    <button class="tab-btn" data-tab="reviews">Reseñas (36)</button>
+                </div>
+                
+                <div class="tabs-content">
+                    <!-- Description Tab -->
+                    <div class="tab-panel active" id="description">
+                        <h2>Descripción del Producto</h2>
+                        <p>PRO X2 SUPERSTRIKE supone un gran avance en la tecnología de latencia de clic ultrabaja. El revolucionario Sistema de Respuesta Háptica Inductiva (HITS) acelera la velocidad de clic con puntos de activación ajustables y puntos de reinicio del disparador rápido para ambas teclas principales del mouse.</p>
+                        
+                        <h3>Características Principales:</h3>
+                        <ul>
+                            <li>Sistema de Respuesta Háptica Inductiva (HITS) para velocidad de clic ultrarrápida</li>
+                            <li>Puntos de activación y reinicio totalmente ajustables</li>
+                            <li>Sensor HERO 2 de 44K DPI con seguimiento sub-micrón</li>
+                            <li>Conectividad inalámbrica LIGHTSPEED con latencia de 1ms</li>
+                            <li>Diseño ultraligero de solo 60g</li>
+                            <li>Batería de hasta 95 horas con una sola carga</li>
+                            <li>Compatible con POWERPLAY para carga inalámbrica continua</li>
+                        </ul>
+                        
+                        <h3>Control Háptico Preciso</h3>
+                        <p>Experimenta una sensación de clic totalmente personalizable con retroalimentación háptica ajustable. Define exactamente cómo y cuándo se activa cada clic para obtener la máxima precisión en cada partida.</p>
+                    </div>
+                    
+                    <!-- Specifications Tab -->
+                    <div class="tab-panel" id="specs">
+                        <h2>Especificaciones Técnicas</h2>
+                        
+                        <div class="specs-grid">
+                            <div class="spec-item">
+                                <h4>Sensor</h4>
+                                <p>HERO 2 de 44,000 DPI</p>
+                            </div>
+                            <div class="spec-item">
+                                <h4>Conectividad</h4>
+                                <p>LIGHTSPEED Inalámbrico (2.4 GHz)</p>
+                            </div>
+                            <div class="spec-item">
+                                <h4>Velocidad de Respuesta</h4>
+                                <p>1ms (1000Hz)</p>
+                            </div>
+                            <div class="spec-item">
+                                <h4>Peso</h4>
+                                <p>60g (sin cable)</p>
+                            </div>
+                            <div class="spec-item">
+                                <h4>Batería</h4>
+                                <p>Hasta 95 horas</p>
+                            </div>
+                            <div class="spec-item">
+                                <h4>Botones Programables</h4>
+                                <p>5 botones totalmente programables</p>
+                            </div>
+                            <div class="spec-item">
+                                <h4>Dimensiones</h4>
+                                <p>125 x 63.5 x 40 mm</p>
+                            </div>
+                            <div class="spec-item">
+                                <h4>Compatible con</h4>
+                                <p>Windows 10+, macOS 10.14+</p>
+                            </div>
+                        </div>
+                        
+                        <h3>En la Caja</h3>
+                        <ul>
+                            <li>Ratón PRO X2 SUPERSTRIKE</li>
+                            <li>Receptor USB LIGHTSPEED</li>
+                            <li>Cable de carga USB-C a USB-A</li>
+                            <li>Adaptador de extensión USB</li>
+                            <li>Documentación del usuario</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Features Tab -->
+                    <div class="tab-panel" id="features">
+                        <h2>Características Clave</h2>
+                        
+                        <div class="features-list">
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <span class="material-icons">bolt</span>
+                                </div>
+                                <div class="feature-content">
+                                    <h3>Sistema HITS</h3>
+                                    <p>El revolucionario Sistema de Respuesta Háptica Inductiva elimina la necesidad de microinterruptores tradicionales, ofreciendo tiempos de respuesta sin precedentes.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <span class="material-icons">tune</span>
+                                </div>
+                                <div class="feature-content">
+                                    <h3>Ajustes Personalizables</h3>
+                                    <p>Configura puntos de activación y reinicio independientes para cada botón principal a través del software G HUB.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <span class="material-icons">straighten</span>
+                                </div>
+                                <div class="feature-content">
+                                    <h3>Sensor HERO 2</h3>
+                                    <p>Seguimiento de precisión sub-micrón hasta 44,000 DPI sin suavizado, filtrado o aceleración.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <span class="material-icons">network_wifi</span>
+                                </div>
+                                <div class="feature-content">
+                                    <h3>LIGHTSPEED Wireless</h3>
+                                    <p>Conectividad inalámbrica profesional con latencia de 1ms, tan rápida como conexiones cableadas.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <span class="material-icons">battery_charging_full</span>
+                                </div>
+                                <div class="feature-content">
+                                    <h3>Batería de Larga Duración</h3>
+                                    <p>Hasta 95 horas de juego continuo con una sola carga. Compatible con POWERPLAY para carga inalámbrica.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <span class="material-icons">fitness_center</span>
+                                </div>
+                                <div class="feature-content">
+                                    <h3>Diseño Ultraligero</h3>
+                                    <p>Solo 60g de peso para movimientos rápidos y precisos sin fatiga durante sesiones largas.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Reviews Tab -->
+                    <div class="tab-panel" id="reviews">
+                        <div class="reviews-summary">
+                            <div class="reviews-score">
+                                <div class="score-number">4.5</div>
+                                <div class="score-stars">
+                                    <span class="material-icons">star</span>
+                                    <span class="material-icons">star</span>
+                                    <span class="material-icons">star</span>
+                                    <span class="material-icons">star</span>
+                                    <span class="material-icons">star_half</span>
+                                </div>
+                                <div class="score-text">Basado en 36 reseñas</div>
+                            </div>
+                            
+                            <div class="reviews-bars">
+                                <div class="review-bar">
+                                    <span>5 estrellas</span>
+                                    <div class="bar"><div class="fill" style="width: 70%;"></div></div>
+                                    <span>25</span>
+                                </div>
+                                <div class="review-bar">
+                                    <span>4 estrellas</span>
+                                    <div class="bar"><div class="fill" style="width: 20%;"></div></div>
+                                    <span>7</span>
+                                </div>
+                                <div class="review-bar">
+                                    <span>3 estrellas</span>
+                                    <div class="bar"><div class="fill" style="width: 8%;"></div></div>
+                                    <span>3</span>
+                                </div>
+                                <div class="review-bar">
+                                    <span>2 estrellas</span>
+                                    <div class="bar"><div class="fill" style="width: 2%;"></div></div>
+                                    <span>1</span>
+                                </div>
+                                <div class="review-bar">
+                                    <span>1 estrella</span>
+                                    <div class="bar"><div class="fill" style="width: 0%;"></div></div>
+                                    <span>0</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="reviews-list">
+                            <div class="review-item">
+                                <div class="review-header">
+                                    <div class="review-author">
+                                        <div class="author-avatar">
+                                            <span class="material-icons">person</span>
+                                        </div>
+                                        <div class="author-info">
+                                            <div class="author-name">Carlos M.</div>
+                                            <div class="review-date">15 de febrero de 2026</div>
+                                        </div>
+                                    </div>
+                                    <div class="review-stars">
+                                        <span class="material-icons">star</span>
+                                        <span class="material-icons">star</span>
+                                        <span class="material-icons">star</span>
+                                        <span class="material-icons">star</span>
+                                        <span class="material-icons">star</span>
+                                    </div>
+                                </div>
+                                <div class="review-content">
+                                    <h4>Increíble tecnología HITS</h4>
+                                    <p>La tecnología HITS es realmente revolucionaria. Los clics son instantáneos y la capacidad de ajustar los puntos de activación es perfecta para mi estilo de juego. Sin duda el mejor ratón gaming que he tenido.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="review-item">
+                                <div class="review-header">
+                                    <div class="review-author">
+                                        <div class="author-avatar">
+                                            <span class="material-icons">person</span>
+                                        </div>
+                                        <div class="author-info">
+                                            <div class="author-name">Ana R.</div>
+                                            <div class="review-date">12 de febrero de 2026</div>
+                                        </div>
+                                    </div>
+                                    <div class="review-stars">
+                                        <span class="material-icons">star</span>
+                                        <span class="material-icons">star</span>
+                                        <span class="material-icons">star</span>
+                                        <span class="material-icons">star</span>
+                                        <span class="material-icons">star_border</span>
+                                    </div>
+                                </div>
+                                <div class="review-content">
+                                    <h4>Excelente rendimiento</h4>
+                                    <p>Muy contenta con la compra. Es ultraligero y la batería dura muchísimo. El único pero es el precio, pero la calidad lo justifica.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button class="btn btn-secondary">Ver Todas las Reseñas</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Products -->
+    <section class="related-products">
+        <div class="container">
+            <h2 class="section-title">También te Puede Gustar</h2>
+            
+            <div class="products-carousel" id="relatedProductsGrid">
+                <div class="product-card">
+                    <a href="product.html" class="product-link">
+                        <div class="product-image">
+                            <div class="product-image-placeholder">
+                                <span class="material-icons">keyboard</span>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">PRO X TKL RAPID</h3>
+                            <p class="product-subtitle">Teclado mecánico gaming</p>
+                            <div class="product-price">
+                                <span class="price-current">189,99 €</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="product-card">
+                    <a href="product.html" class="product-link">
+                        <div class="product-image">
+                            <div class="product-image-placeholder">
+                                <span class="material-icons">headset</span>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">PRO X 2</h3>
+                            <p class="product-subtitle">Auriculares inalámbricos</p>
+                            <div class="product-price">
+                                <span class="price-current">249,99 €</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="product-card">
+                    <a href="product.html" class="product-link">
+                        <div class="product-image">
+                            <div class="product-image-placeholder">
+                                <span class="material-icons">crop_square</span>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">POWERPLAY</h3>
+                            <p class="product-subtitle">Alfombrilla con carga inalámbrica</p>
+                            <div class="product-price">
+                                <span class="price-current">119,99 €</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="product-card">
+                    <a href="product.html" class="product-link">
+                        <div class="product-image">
+                            <div class="product-image-placeholder">
+                                <span class="material-icons">mouse</span>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">PRO X SUPERLIGHT 2</h3>
+                            <p class="product-subtitle">Ratón inalámbrico ultra ligero</p>
+                            <div class="product-price">
+                                <span class="price-current">159,99 €</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h4>TechStore</h4>
+                    <ul>
+                        <li><a href="#">Nuestra historia</a></li>
+                        <li><a href="#">Empleo</a></li>
+                        <li><a href="#">Inversores</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Sostenibilidad</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Ver Productos</h4>
+                    <ul>
+                        <li><a href="shop.html">Ratones Gaming</a></li>
+                        <li><a href="shop.html">Teclados Gaming</a></li>
+                        <li><a href="shop.html">Auriculares</a></li>
+                        <li><a href="shop.html">Alfombrillas</a></li>
+                        <li><a href="shop.html">Accesorios</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Atención al Cliente</h4>
+                    <ul>
+                        <li><a href="#">Asistencia</a></li>
+                        <li><a href="#">Contacto</a></li>
+                        <li><a href="#">Política de devoluciones</a></li>
+                        <li><a href="#">Envíos</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Síguenos</h4>
+                    <div class="social-links">
+                        <a href="#" aria-label="Instagram">
+                            <span class="material-icons">photo_camera</span>
+                        </a>
+                        <a href="#" aria-label="Twitter">
+                            <span class="material-icons">chat</span>
+                        </a>
+                        <a href="#" aria-label="Facebook">
+                            <span class="material-icons">public</span>
+                        </a>
+                        <a href="#" aria-label="YouTube">
+                            <span class="material-icons">play_circle</span>
+                        </a>
+                    </div>
+                    
+                    <div class="newsletter">
+                        <h5>Newsletter</h5>
+                        <form class="newsletter-form">
+                            <input type="email" placeholder="Tu email" required>
+                            <button type="submit" class="btn btn-primary">
+                                <span class="material-icons">send</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 TechStore. Todos los derechos reservados.</p>
+                <div class="footer-legal">
+                    <a href="#">Política de Privacidad</a>
+                    <a href="#">Términos de Servicio</a>
+                    <a href="#">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,466 @@
+// ============================================================
+// _components.sass
+// Reusable UI component styles written with BEM + Sass nesting
+// ============================================================
+@use 'variables' as v
+@use 'mixins' as m
+
+// ============================
+// CART DRAWER (Bootstrap Offcanvas override)
+// ============================
+.cart-drawer
+  width: 420px !important
+  max-width: 100vw
+  display: flex
+  flex-direction: column
+  @include m.respond-to('xs')
+    width: 100vw !important
+  // Offcanvas header
+  &__header
+    @include m.flex-center(row, space-between)
+    padding: 1.25rem 1.5rem
+    border-bottom: 1px solid v.$border-color
+    flex-shrink: 0
+    .offcanvas-title
+      @include m.flex-center(row, flex-start)
+      gap: 0.5rem
+      font-weight: v.$font-weight-bold
+      font-size: 1.1rem
+      .material-icons
+        color: var(--primary-color)
+  // Scrollable body
+  &__body
+    flex: 1
+    overflow-y: auto
+    padding: 0
+    @include m.custom-scrollbar(5px, v.$border-color)
+  // Individual item
+  &__item
+    display: grid
+    grid-template-columns: 72px 1fr
+    gap: 1rem
+    padding: 1rem 1.5rem
+    border-bottom: 1px solid v.$border-color
+    transition: background v.$transition-fast
+    &:hover
+      background: v.$bg-secondary
+    &:last-child
+      border-bottom: none
+    &-image
+      width: 72px
+      height: 72px
+      background: v.$bg-secondary
+      border-radius: v.$border-radius-md
+      @include m.flex-center()
+      flex-shrink: 0
+      .material-icons
+        font-size: 36px
+        color: v.$text-secondary
+    &-info
+      min-width: 0
+    &-header
+      display: flex
+      justify-content: space-between
+      align-items: flex-start
+      gap: 0.5rem
+    &-name
+      font-weight: v.$font-weight-semi
+      font-size: 0.875rem
+      line-height: 1.3
+      @include m.truncate(2)
+    &-variant
+      font-size: 0.8rem
+      color: v.$text-secondary
+      margin: 0.2rem 0 0.5rem
+    &-footer
+      display: flex
+      justify-content: space-between
+      align-items: center
+    &-price
+      font-weight: v.$font-weight-bold
+      color: v.$primary
+    &-remove
+      background: none
+      border: none
+      padding: 2px
+      color: v.$text-light
+      cursor: pointer
+      flex-shrink: 0
+      border-radius: v.$border-radius-sm
+      transition: color v.$transition-fast
+      &:hover
+        color: v.$danger
+      .material-icons
+        font-size: 18px
+        display: block
+  // Qty control inside drawer
+  &__qty
+    display: flex
+    align-items: center
+    gap: 0.5rem
+    &-btn
+      width: 28px
+      height: 28px
+      border-radius: 50%
+      border: 1px solid v.$border-color
+      background: v.$white
+      cursor: pointer
+      @include m.flex-center()
+      transition: all v.$transition-fast
+      .material-icons
+        font-size: 16px
+      &:hover
+        background: v.$primary
+        border-color: v.$primary
+        color: v.$white
+    &-value
+      min-width: 24px
+      text-align: center
+      font-weight: v.$font-weight-semi
+      font-size: 0.9rem
+  // Empty state
+  &__empty
+    @include m.flex-center(column)
+    gap: 0.75rem
+    padding: 3rem 1.5rem
+    text-align: center
+    color: v.$text-secondary
+    .material-icons
+      font-size: 64px
+      color: v.$border-color
+    h4
+      font-weight: v.$font-weight-bold
+      margin: 0
+    p
+      margin: 0
+      font-size: 0.9rem
+  // Footer with totals + actions
+  &__footer
+    padding: 1.25rem 1.5rem
+    border-top: 1px solid v.$border-color
+    background: v.$bg-secondary
+    flex-shrink: 0
+  &__total
+    display: flex
+    justify-content: space-between
+    align-items: center
+    font-size: 1.1rem
+    font-weight: v.$font-weight-bold
+    margin-bottom: 1rem
+    span:last-child
+      color: v.$primary
+
+// ============================
+// SEARCH MODAL (Bootstrap Modal override)
+// ============================
+.search-modal
+  .modal-content
+    border: none
+    border-radius: v.$border-radius-xl
+    box-shadow: v.$shadow-xl
+  .modal-body
+    padding: 1.5rem
+  // Search input wrapper
+  &__input-wrap
+    position: relative
+    margin-bottom: 1rem
+    .material-icons.search-icon
+      position: absolute
+      left: 1rem
+      top: 50%
+      transform: translateY(-50%)
+      color: v.$text-secondary
+      pointer-events: none
+      z-index: 2
+    input
+      padding-left: 3rem
+      padding-right: 3rem
+      font-size: 1.1rem
+      height: 56px
+      border: 2px solid v.$border-color
+      &:focus
+        border-color: v.$primary
+    &-close
+      position: absolute
+      right: 1rem
+      top: 50%
+      transform: translateY(-50%)
+      background: none
+      border: none
+      cursor: pointer
+      color: v.$text-secondary
+      padding: 4px
+      border-radius: 50%
+      transition: color v.$transition-fast
+      &:hover
+        color: v.$dark
+  // Quick category chips
+  &__chips
+    display: flex
+    flex-wrap: wrap
+    gap: 0.5rem
+    margin-bottom: 1rem
+  // Results list
+  &__results
+    max-height: 380px
+    overflow-y: auto
+    @include m.custom-scrollbar(4px, v.$border-color)
+  // Single result item
+  &__result-item
+    display: grid
+    grid-template-columns: 56px 1fr auto
+    gap: 1rem
+    align-items: center
+    padding: 0.75rem
+    border-radius: v.$border-radius-md
+    text-decoration: none
+    color: inherit
+    transition: background v.$transition-fast
+    &:hover
+      background: v.$bg-secondary
+    &-image
+      width: 56px
+      height: 56px
+      background: v.$bg-secondary
+      border-radius: v.$border-radius-sm
+      @include m.flex-center()
+      .material-icons
+        font-size: 28px
+        color: v.$text-secondary
+    &-name
+      font-weight: v.$font-weight-semi
+      font-size: 0.9rem
+      @include m.truncate(1)
+    &-subtitle
+      font-size: 0.8rem
+      color: v.$text-secondary
+      @include m.truncate(1)
+    &-price
+      font-weight: v.$font-weight-bold
+      color: v.$primary
+      white-space: nowrap
+  // No results
+  &__no-results
+    @include m.flex-center(column)
+    gap: 0.75rem
+    padding: 2rem 0
+    color: v.$text-secondary
+    text-align: center
+    .material-icons
+      font-size: 48px
+      color: v.$border-color
+
+// Quick filter chip button
+.search-chip
+  padding: 0.4rem 0.9rem
+  border: 1px solid v.$border-color
+  border-radius: v.$border-radius-pill
+  background: v.$white
+  font-size: 0.85rem
+  cursor: pointer
+  transition: all v.$transition-fast
+  color: v.$text-secondary
+  font-weight: v.$font-weight-medium
+  &:hover,   &.active
+    background: v.$primary
+    border-color: v.$primary
+    color: v.$white
+
+// ============================
+// AUTH FORM FIELDS
+// ============================
+.auth-form-field
+  margin-bottom: 1.25rem
+  label
+    display: block
+    font-size: 0.875rem
+    font-weight: v.$font-weight-medium
+    margin-bottom: 0.4rem
+    color: v.$text-primary
+    .optional
+      font-weight: v.$font-weight-normal
+      color: v.$text-light
+      font-size: 0.8rem
+  // Wrapper holds icon + input + status icon
+  .input-wrapper
+    position: relative
+    display: flex
+    align-items: center
+    .input-icon
+      position: absolute
+      left: 0.875rem
+      color: v.$text-secondary
+      font-size: 20px
+      pointer-events: none
+      z-index: 1
+    input
+      width: 100%
+      padding: 0.875rem 3rem 0.875rem 2.75rem
+      border: 2px solid v.$border-color
+      border-radius: v.$border-radius-md
+      font-size: 0.95rem
+      font-family: v.$font-family
+      transition: border-color v.$transition-base, box-shadow v.$transition-base
+      background: v.$white
+      @include m.placeholder(v.$text-light)
+      &:focus
+        outline: none
+        border-color: v.$primary
+        box-shadow: 0 0 0 3px rgba(v.$primary, 0.15)
+      &.is-valid
+        @include m.field-state(v.$success)
+      &.is-invalid
+        @include m.field-state(v.$danger)
+    .input-status
+      position: absolute
+      right: 0.875rem
+      font-size: 20px
+      pointer-events: none
+      opacity: 0
+      transition: opacity v.$transition-fast
+      &.valid
+        color: v.$success
+        opacity: 1
+      &.invalid
+        color: v.$danger
+        opacity: 1
+    .toggle-password
+      position: absolute
+      right: 0.75rem
+      background: none
+      border: none
+      cursor: pointer
+      color: v.$text-secondary
+      padding: 4px
+      border-radius: v.$border-radius-sm
+      transition: color v.$transition-fast
+      &:hover
+        color: v.$primary
+      .material-icons
+        font-size: 20px
+        display: block
+  .field-error
+    font-size: 0.8rem
+    color: v.$danger
+    margin-top: 0.3rem
+    display: none
+    &:not(:empty)
+      display: block
+
+// --- Two-column form row ---
+.form-row-two
+  display: grid
+  grid-template-columns: 1fr 1fr
+  gap: 1rem
+  @include m.respond-to('xs')
+    grid-template-columns: 1fr
+
+// --- Auth checkbox ---
+.auth-checkbox
+  display: flex
+  align-items: flex-start
+  gap: 0.6rem
+  cursor: pointer
+  font-size: 0.875rem
+  color: v.$text-secondary
+  line-height: 1.4
+  input[type="checkbox"]
+    width: 18px
+    height: 18px
+    flex-shrink: 0
+    margin-top: 0.1rem
+    accent-color: v.$primary
+    cursor: pointer
+  a
+    color: v.$primary
+    text-decoration: none
+    font-weight: v.$font-weight-medium
+
+// --- Password strength bar ---
+.password-strength
+  margin-top: 0.5rem
+  &__bars
+    display: flex
+    gap: 4px
+    height: 4px
+  &__bar
+    flex: 1
+    height: 4px
+    background: v.$border-color
+    border-radius: 2px
+    transition: background v.$transition-base
+    &.active-1
+      background: v.$danger
+    &.active-2
+      background: v.$warning
+    &.active-3
+      background: v.$primary
+    &.active-4
+      background: v.$success
+  &__label
+    font-size: 0.78rem
+    margin-top: 0.3rem
+    font-weight: v.$font-weight-medium
+    &.strength-1
+      color: v.$danger
+    &.strength-2
+      color: v.$warning
+    &.strength-3
+      color: v.$primary
+    &.strength-4
+      color: v.$success
+
+// ============================
+// TOAST NOTIFICATIONS
+// ============================
+.toast-container
+  z-index: v.$z-toast
+.tekno-toast
+  min-width: 280px
+  border-radius: v.$border-radius-md !important
+  border: none !important
+  box-shadow: v.$shadow-lg !important
+  .toast-body
+    display: flex
+    align-items: center
+    gap: 0.6rem
+    font-weight: v.$font-weight-medium
+    font-family: v.$font-family
+    padding: 0.875rem 1rem
+  &--success
+    background: v.$success
+    color: v.$white
+  &--error
+    background: v.$danger
+    color: v.$white
+  &--info
+    background: v.$primary
+    color: v.$dark
+  &--warning
+    background: v.$warning
+    color: v.$dark
+
+// ============================
+// CHECKOUT SUCCESS MODAL
+// ============================
+.checkout-success-modal
+  .modal-content
+    border: none
+    border-radius: v.$border-radius-xl
+    text-align: center
+    padding: 1rem
+  &__icon
+    font-size: 72px
+    color: v.$success
+    display: block
+    margin-bottom: 1rem
+  &__order-number
+    display: inline-block
+    background: v.$bg-secondary
+    border-radius: v.$border-radius-md
+    padding: 0.5rem 1.5rem
+    font-weight: v.$font-weight-bold
+    font-size: 1.25rem
+    color: v.$primary
+    letter-spacing: 1px
+    margin: 1rem 0

@@ -1,0 +1,69 @@
+// ============================================================
+// main.sass — Teknovation Design System Entry Point
+//
+// Compilation command (with npm script):
+//   npm run sass:build
+//
+// Module system: Uses @use (modern Sass) instead of @import
+// This file imports all partials in dependency order.
+// ============================================================
+
+// 1. Design tokens (no output — pure variable declarations)
+@use 'sass:color'
+@use 'variables' as v
+
+// 2. Mixins & functions (no output — pure definitions)
+@use 'mixins' as m
+
+// 3. Base overrides & utility generation
+//    - Bootstrap container override
+//    - Spacing utilities via @each loop
+//    - Form control reset
+@use 'base'
+
+// 4. Reusable component styles
+//    - Cart drawer (BEM: .cart-drawer)
+//    - Search modal (BEM: .search-modal)
+//    - Auth form fields (BEM: .auth-form-field)
+//    - Toast notifications
+@use 'components'
+
+// 5. Page-specific layouts
+//    - Auth page (.auth-page, .auth-card)
+//    - Cart page (.cart-page, .cart-section, .order-summary-card)
+@use 'pages'
+
+// 6. Legacy storefront styles migrated from styles.css
+@use 'legacy'
+
+// ============================================================
+// Additional global Sass-specific styles
+// (demonstrates: operators, color functions, @if, @for)
+// ============================================================
+// Generate button variant classes with @for loop
+// Produces: .btn-opacity-1 through .btn-opacity-9
+@for $i from 1 through 9
+  .btn-opacity-#{$i}
+    opacity: calc(#{$i} / 10)
+
+// Responsive font size utility using math operators
+.text-responsive
+  font-size: clamp(1rem,
+  calc(1rem + (v.$container-pad / 2)),
+  1.25rem
+  )
+
+// Darken/lighten color function demonstration
+.primary-dark
+  color: color.adjust(v.$primary, $lightness: -15%)
+.primary-light
+  color: color.adjust(v.$primary, $lightness: 25%)
+
+// @if directive: conditional utility
+@mixin debug-outline($enabled: false)
+  @if $enabled
+    *
+      outline: 1px solid red
+
+// Usage in development: @include debug-outline(true);
+@include debug-outline(false)

@@ -1,0 +1,560 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Iniciar sesión o crear cuenta en Teknovation"
+    />
+    <title>Mi Cuenta | Teknovation</title>
+    <!-- Google Material Icons -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="node_modules/bootstrap/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="dist/css/main.css" />
+  </head>
+  <body class="auth-page">
+    <!-- Header -->
+    <header class="header">
+      <nav class="header-nav">
+        <div class="container">
+          <div class="nav-content">
+            <div class="nav-left">
+              <a href="index.html" class="logo">
+                <img
+                  src="./assets/logo-teknovation.png"
+                  alt="Teknovation"
+                  height="48"
+                />
+              </a>
+              <ul class="nav-menu">
+                <li><a href="shop.html">Tienda</a></li>
+                <li class="nav-highlight"><a href="shop.html">Ofertas</a></li>
+              </ul>
+            </div>
+
+            <div class="header-actions">
+              <button
+                class="icon-btn"
+                id="searchBtn"
+                aria-label="Buscar"
+                data-bs-toggle="modal"
+                data-bs-target="#searchModal"
+              >
+                <span class="material-icons">search</span>
+              </button>
+              <button class="icon-btn" id="wishlistBtn" aria-label="Favoritos">
+                <span class="material-icons">favorite_border</span>
+              </button>
+              <a
+                href="auth.html"
+                class="icon-btn active-page"
+                aria-label="Mi cuenta"
+              >
+                <span class="material-icons">person</span>
+              </a>
+              <button
+                class="icon-btn cart-btn"
+                aria-label="Carrito"
+                data-bs-toggle="offcanvas"
+                data-bs-target="#cartDrawer"
+                aria-controls="cartDrawer"
+              >
+                <span class="material-icons">shopping_cart</span>
+                <span class="cart-count">0</span>
+              </button>
+            </div>
+
+            <button class="mobile-menu-toggle" aria-label="Menú">
+              <span class="material-icons">menu</span>
+            </button>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Auth Main -->
+    <main class="auth-main">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5">
+            <div class="auth-card">
+              <!-- Tab Switcher -->
+              <div class="auth-tabs" role="tablist" aria-label="Tipo de acceso">
+                <button
+                  class="auth-tab active"
+                  id="loginTab"
+                  role="tab"
+                  aria-selected="true"
+                  aria-controls="loginPanel"
+                  data-tab="login"
+                >
+                  Iniciar Sesión
+                </button>
+                <button
+                  class="auth-tab"
+                  id="registerTab"
+                  role="tab"
+                  aria-selected="false"
+                  aria-controls="registerPanel"
+                  data-tab="register"
+                >
+                  Crear Cuenta
+                </button>
+              </div>
+
+              <!-- ========================== -->
+              <!-- LOGIN PANEL               -->
+              <!-- ========================== -->
+              <div
+                class="auth-form-panel active"
+                id="loginPanel"
+                role="tabpanel"
+                aria-labelledby="loginTab"
+              >
+                <h1 class="auth-title">Bienvenido de vuelta</h1>
+                <p class="auth-subtitle">
+                  Inicia sesión para acceder a tu cuenta
+                </p>
+
+                <form id="loginForm" novalidate autocomplete="on">
+                  <!-- Email -->
+                  <div class="auth-form-field">
+                    <label for="loginEmail">Correo electrónico</label>
+                    <div class="input-wrapper">
+                      <span class="material-icons input-icon">email</span>
+                      <input
+                        type="email"
+                        id="loginEmail"
+                        name="email"
+                        class="form-control"
+                        placeholder="tu@email.com"
+                        autocomplete="email"
+                        required
+                      />
+                      <span
+                        class="input-status material-icons"
+                        id="loginEmailStatus"
+                        aria-hidden="true"
+                      ></span>
+                    </div>
+                    <div
+                      class="field-error"
+                      id="loginEmailError"
+                      role="alert"
+                    ></div>
+                  </div>
+
+                  <!-- Password -->
+                  <div class="auth-form-field">
+                    <label for="loginPassword">Contraseña</label>
+                    <div class="input-wrapper">
+                      <span class="material-icons input-icon">lock</span>
+                      <input
+                        type="password"
+                        id="loginPassword"
+                        name="password"
+                        class="form-control"
+                        placeholder="Tu contraseña"
+                        autocomplete="current-password"
+                        required
+                        minlength="6"
+                      />
+                      <button
+                        type="button"
+                        class="toggle-password"
+                        aria-label="Mostrar u ocultar contraseña"
+                        data-target="loginPassword"
+                      >
+                        <span class="material-icons">visibility_off</span>
+                      </button>
+                    </div>
+                    <div
+                      class="field-error"
+                      id="loginPasswordError"
+                      role="alert"
+                    ></div>
+                  </div>
+
+                  <!-- Options row -->
+                  <div class="form-row-inline">
+                    <label class="auth-checkbox">
+                      <input
+                        type="checkbox"
+                        id="rememberMe"
+                        name="rememberMe"
+                      />
+                      <span>Recuérdame</span>
+                    </label>
+                    <button
+                      type="button"
+                      class="link-btn"
+                      id="forgotPasswordBtn"
+                    >
+                      ¿Olvidaste tu contraseña?
+                    </button>
+                  </div>
+
+                  <button
+                    type="submit"
+                    class="btn btn-primary btn-auth"
+                    id="loginSubmit"
+                  >
+                    <span class="btn-text">Iniciar Sesión</span>
+                  </button>
+                </form>
+              </div>
+
+              <!-- ========================== -->
+              <!-- REGISTER PANEL            -->
+              <!-- ========================== -->
+              <div
+                class="auth-form-panel"
+                id="registerPanel"
+                role="tabpanel"
+                aria-labelledby="registerTab"
+              >
+                <h1 class="auth-title">Crear una cuenta</h1>
+                <p class="auth-subtitle">
+                  Únete y disfruta de beneficios exclusivos
+                </p>
+
+                <form id="registerForm" novalidate autocomplete="on">
+                  <!-- Nombre + Apellido -->
+                  <div class="form-row-two">
+                    <div class="auth-form-field">
+                      <label for="firstName">Nombre</label>
+                      <div class="input-wrapper">
+                        <span class="material-icons input-icon">person</span>
+                        <input
+                          type="text"
+                          id="firstName"
+                          name="firstName"
+                          class="form-control"
+                          placeholder="Juan"
+                          autocomplete="given-name"
+                          required
+                          minlength="2"
+                          maxlength="50"
+                        />
+                        <span
+                          class="input-status material-icons"
+                          id="firstNameStatus"
+                          aria-hidden="true"
+                        ></span>
+                      </div>
+                      <div
+                        class="field-error"
+                        id="firstNameError"
+                        role="alert"
+                      ></div>
+                    </div>
+
+                    <div class="auth-form-field">
+                      <label for="lastName">Apellido</label>
+                      <div class="input-wrapper">
+                        <span class="material-icons input-icon">person</span>
+                        <input
+                          type="text"
+                          id="lastName"
+                          name="lastName"
+                          class="form-control"
+                          placeholder="García"
+                          autocomplete="family-name"
+                          required
+                          minlength="2"
+                          maxlength="50"
+                        />
+                        <span
+                          class="input-status material-icons"
+                          id="lastNameStatus"
+                          aria-hidden="true"
+                        ></span>
+                      </div>
+                      <div
+                        class="field-error"
+                        id="lastNameError"
+                        role="alert"
+                      ></div>
+                    </div>
+                  </div>
+
+                  <!-- Email -->
+                  <div class="auth-form-field">
+                    <label for="registerEmail">Correo electrónico</label>
+                    <div class="input-wrapper">
+                      <span class="material-icons input-icon">email</span>
+                      <input
+                        type="email"
+                        id="registerEmail"
+                        name="email"
+                        class="form-control"
+                        placeholder="tu@email.com"
+                        autocomplete="email"
+                        required
+                      />
+                      <span
+                        class="input-status material-icons"
+                        id="registerEmailStatus"
+                        aria-hidden="true"
+                      ></span>
+                    </div>
+                    <div
+                      class="field-error"
+                      id="registerEmailError"
+                      role="alert"
+                    ></div>
+                  </div>
+
+                  <!-- Teléfono (opcional) -->
+                  <div class="auth-form-field">
+                    <label for="phone"
+                      >Teléfono <span class="optional">(opcional)</span></label
+                    >
+                    <div class="input-wrapper">
+                      <span class="material-icons input-icon">phone</span>
+                      <input
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        class="form-control"
+                        placeholder="0000-0000"
+                        autocomplete="tel"
+                        maxlength="9" 
+                      />
+                      <span
+                        class="input-status material-icons"
+                        id="phoneStatus"
+                        aria-hidden="true"
+                      ></span>
+                    </div>
+                    <div class="field-error" id="phoneError" role="alert"></div>
+                  </div>
+
+                  <!-- Contraseña -->
+                  <div class="auth-form-field">
+                    <label for="registerPassword">Contraseña</label>
+                    <div class="input-wrapper">
+                      <span class="material-icons input-icon">lock</span>
+                      <input
+                        type="password"
+                        id="registerPassword"
+                        name="password"
+                        class="form-control"
+                        placeholder="Mínimo 8 caracteres"
+                        autocomplete="new-password"
+                        required
+                        minlength="8"
+                      />
+                      <button
+                        type="button"
+                        class="toggle-password"
+                        aria-label="Mostrar u ocultar contraseña"
+                        data-target="registerPassword"
+                      >
+                        <span class="material-icons">visibility_off</span>
+                      </button>
+                    </div>
+                    <div
+                      class="field-error"
+                      id="registerPasswordError"
+                      role="alert"
+                    ></div>
+
+                    <!-- Medidor de fortaleza -->
+                    <div
+                      class="password-strength"
+                      id="passwordStrength"
+                      aria-label="Fortaleza de contraseña"
+                    >
+                      <div class="password-strength__bars" aria-hidden="true">
+                        <div
+                          class="password-strength__bar"
+                          id="strengthBar1"
+                        ></div>
+                        <div
+                          class="password-strength__bar"
+                          id="strengthBar2"
+                        ></div>
+                        <div
+                          class="password-strength__bar"
+                          id="strengthBar3"
+                        ></div>
+                        <div
+                          class="password-strength__bar"
+                          id="strengthBar4"
+                        ></div>
+                      </div>
+                      <div
+                        class="password-strength__label"
+                        id="strengthLabel"
+                      ></div>
+                    </div>
+                  </div>
+
+                  <!-- Confirmar contraseña -->
+                  <div class="auth-form-field">
+                    <label for="confirmPassword">Confirmar contraseña</label>
+                    <div class="input-wrapper">
+                      <span class="material-icons input-icon"
+                        >lock_outline</span
+                      >
+                      <input
+                        type="password"
+                        id="confirmPassword"
+                        name="confirmPassword"
+                        class="form-control"
+                        placeholder="Repite tu contraseña"
+                        autocomplete="new-password"
+                        required
+                      />
+                      <button
+                        type="button"
+                        class="toggle-password"
+                        aria-label="Mostrar u ocultar contraseña"
+                        data-target="confirmPassword"
+                      >
+                        <span class="material-icons">visibility_off</span>
+                      </button>
+                    </div>
+                    <div
+                      class="field-error"
+                      id="confirmPasswordError"
+                      role="alert"
+                    ></div>
+                  </div>
+
+                  <!-- Términos -->
+                  <div class="mb-3">
+                    <label class="auth-checkbox">
+                      <input
+                        type="checkbox"
+                        id="acceptTerms"
+                        name="acceptTerms"
+                        required
+                      />
+                      <span>
+                        Acepto los
+                        <a href="#" onclick="return false;"
+                          >Términos de Servicio</a
+                        >
+                        y la
+                        <a href="#" onclick="return false;"
+                          >Política de Privacidad</a
+                        >
+                      </span>
+                    </label>
+                    <div class="field-error" id="termsError" role="alert"></div>
+                  </div>
+
+                  <!-- Newsletter opt-in -->
+                  <div class="mb-4">
+                    <label class="auth-checkbox">
+                      <input
+                        type="checkbox"
+                        id="newsletterOptin"
+                        name="newsletter"
+                      />
+                      <span
+                        >Quiero recibir ofertas exclusivas y novedades por
+                        email</span
+                      >
+                    </label>
+                  </div>
+
+                  <button
+                    type="submit"
+                    class="btn btn-primary btn-auth"
+                    id="registerSubmit"
+                  >
+                    <span class="btn-text">Crear Cuenta</span>
+                  </button>
+                </form>
+              </div>
+
+              <!-- ========================== -->
+              <!-- SUCCESS STATE             -->
+              <!-- ========================== -->
+              <div
+                class="auth-success"
+                id="authSuccess"
+                style="display: none"
+                aria-live="polite"
+              >
+                <div class="success-icon">
+                  <span class="material-icons">check_circle</span>
+                </div>
+                <h2 id="successTitle">¡Bienvenido!</h2>
+                <p id="successMessage">Has iniciado sesión correctamente.</p>
+                <a href="index.html" class="btn btn-primary">
+                  <span class="material-icons">storefront</span>
+                  Ir a la Tienda
+                </a>
+                <button
+                  class="btn btn-secondary"
+                  id="logoutBtn"
+                  style="margin-top: 0.5rem"
+                >
+                  Cerrar Sesión
+                </button>
+              </div>
+            </div>
+            <!-- /.auth-card -->
+
+            <p
+              class="text-center mt-3"
+              style="font-size: 0.875rem; color: var(--text-secondary)"
+            >
+              <a
+                href="index.html"
+                style="
+                  color: var(--text-secondary);
+                  text-decoration: none;
+                  display: inline-flex;
+                  align-items: center;
+                  gap: 4px;
+                "
+              >
+                <span class="material-icons" style="font-size: 16px"
+                  >arrow_back</span
+                >
+                Volver a la tienda
+              </a>
+            </p>
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container -->
+    </main>
+
+    <!-- Minimal Footer -->
+    <footer class="footer-minimal">
+      <div class="container">
+        <p>&copy; 2026 Teknovation. Todos los derechos reservados.</p>
+        <nav class="footer-legal" aria-label="Legal">
+          <a href="#">Política de Privacidad</a>
+          <a href="#">Términos de Servicio</a>
+        </nav>
+      </div>
+    </footer>
+
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

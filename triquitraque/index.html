@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Triquitraque Studio - Creamos productos web modernos, seguros y escalables." />
+    <title>Triquitraque Studio | Desarrollo Web</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap"
+        rel="stylesheet" />
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+
+    <!-- SweetAlert2 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.8/dist/sweetalert2.min.css" rel="stylesheet" />
+
+    <!-- CSS propio -->
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body class="bg-light">
+    <a class="visually-hidden-focusable" href="#main">Saltar al contenido</a>
+
+    <!-- NAV -->
+    <header class="sticky-top bg-white border-bottom">
+        <nav class="navbar navbar-expand-lg container py-2" aria-label="Navegación principal">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+                <img src="assets/logo-triquitraque.png" alt="Triquitraque Studio" height="90" />
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"
+                aria-controls="navMenu" aria-expanded="false" aria-label="Abrir menú">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-lg-1">
+                    <li class="nav-item"><a class="nav-link" href="#mision">Misión</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#vision">Visión</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#valores">Valores</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#equipo">Equipo</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#producto">Producto</a></li>
+                    <li class="nav-item">
+                        <a class="btn btn-primary ms-lg-2" href="#contacto">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main id="main">
+        <!-- HERO -->
+        <section class="hero py-5 border-bottom">
+            <div class="container">
+                <div class="row align-items-center g-4">
+                    <div class="col-12 col-lg-6">
+                        <h1 class="display-5 fw-bold mb-3">
+                            Construimos productos web modernos, seguros y escalables.
+                        </h1>
+                        <p class="lead text-secondary mb-4">
+                            Triquitraque Studio diseña y desarrolla experiencias digitales con buenas prácticas,
+                            enfoque en UX y una base técnica sólida.
+                        </p>
+
+                        <div class="d-flex flex-wrap gap-2">
+                            <a class="btn btn-primary btn-lg" href="#producto">Ver producto</a>
+                            <a class="btn btn-outline-primary btn-lg" href="#equipo">Conocer el equipo</a>
+                        </div>
+
+                        <div class="mt-4 d-flex flex-wrap gap-2">
+                            <span class="badge text-bg-light border">Frontend</span>
+                            <span class="badge text-bg-light border">Backend</span>
+                            <span class="badge text-bg-light border">UX/UI</span>
+                            <span class="badge text-bg-light border">Buenas prácticas</span>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-lg-6">
+                        <div
+                            class="hero-mock rounded-4 border bg-white shadow-sm d-flex align-items-center justify-content-center p-4">
+                            <img src="../teknovation/assets/logo-teknovation.png" alt="Teknovation Logo"
+                                class="img-fluid" style="max-height: 120px;" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MISIÓN -->
+        <section id="mision" class="py-5">
+            <div class="container">
+                <div class="row g-4 align-items-start">
+                    <div class="col-12 col-lg-4">
+                        <h2 class="fw-bold mb-2">Misión</h2>
+                        <p class="text-secondary mb-0">
+                            Brindar soluciones web modernas, seguras y accesibles, construidas con buenas prácticas,
+                            enfocadas en una experiencia de usuario intuitiva y responsiva.
+                        </p>
+                    </div>
+
+                    <div class="col-12 col-lg-8">
+                        <div class="card shadow-sm">
+                            <div class="card-body">
+                                <h3 class="h5 fw-bold">¿Cómo lo hacemos?</h3>
+                                <ul class="mb-0 text-secondary">
+                                    <li>Arquitectura clara y separación de responsabilidades</li>
+                                    <li>Reutilización de componentes</li>
+                                    <li>Validación y manejo de errores</li>
+                                    <li>Diseño responsive desde móvil</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- VISIÓN -->
+        <section id="vision" class="py-5 bg-soft border-top border-bottom">
+            <div class="container">
+                <div class="row g-4 align-items-center">
+                    <div class="col-12 col-lg-8">
+                        <h2 class="fw-bold mb-2">Visión</h2>
+                        <p class="text-secondary mb-0">
+                            Convertirnos en un estudio de referencia por crear productos web con diseño intuitivo,
+                            manejo correcto de la información del usuario y soluciones escalables orientadas a mejora
+                            continua.
+                        </p>
+                    </div>
+                    <div class="col-12 col-lg-4">
+                        <div class="p-4 bg-white border rounded-4 shadow-sm">
+                            <div class="fw-bold">Enfoque</div>
+                            <div class="text-secondary">Calidad • Seguridad • Accesibilidad</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- VALORES -->
+        <section id="valores" class="py-5">
+            <div class="container">
+                <div class="text-center mb-4">
+                    <h2 class="fw-bold">Valores</h2>
+                    <p class="text-secondary mb-0">Lo que guía nuestras decisiones de diseño y desarrollo.</p>
+                </div>
+
+                <div class="row g-3">
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="card h-100 shadow-sm">
+                            <div class="card-body">
+                                <h3 class="h5 fw-bold">Innovación</h3>
+                                <p class="text-secondary mb-0">Uso constante de tecnologías web modernas y soluciones
+                                    eficientes.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="card h-100 shadow-sm">
+                            <div class="card-body">
+                                <h3 class="h5 fw-bold">Seguridad</h3>
+                                <p class="text-secondary mb-0">Protección de datos y control de accesos según roles.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="card h-100 shadow-sm">
+                            <div class="card-body">
+                                <h3 class="h5 fw-bold">Calidad</h3>
+                                <p class="text-secondary mb-0">Código claro, estructura correcta y buenas prácticas.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="card h-100 shadow-sm">
+                            <div class="card-body">
+                                <h3 class="h5 fw-bold">Responsabilidad</h3>
+                                <p class="text-secondary mb-0">Compromiso con experiencia de usuario y mantenibilidad.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="card h-100 shadow-sm">
+                            <div class="card-body">
+                                <h3 class="h5 fw-bold">Accesibilidad</h3>
+                                <p class="text-secondary mb-0">Diseño responsivo e intuitivo para todo tipo de usuarios.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- EQUIPO -->
+        <section id="equipo" class="py-5 bg-soft border-top border-bottom">
+            <div class="container">
+                <div class="d-flex align-items-end justify-content-between flex-wrap gap-2 mb-3">
+                    <div>
+                        <h2 class="fw-bold mb-1">Equipo</h2>
+                        <p class="text-secondary mb-0">Integrantes del proyecto.</p>
+                    </div>
+                </div>
+
+                <div class="row g-3">
+                    <div class="col-12 col-md-4">
+                        <div class="card h-100 shadow-sm">
+                            <div class="card-body">
+                                <div class="fw-bold">Dylan Josue Chaves Hernandez</div>
+                                <div class="text-secondary">Frontend / UI</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-4">
+                        <div class="card h-100 shadow-sm">
+                            <div class="card-body">
+                                <div class="fw-bold">Daniel Gavilan Echeverria</div>
+                                <div class="text-secondary">Arquitectura / Integración</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-4">
+                        <div class="card h-100 shadow-sm">
+                            <div class="card-body">
+                                <div class="fw-bold">Alejandro Soto Viquez</div>
+                                <div class="text-secondary">Backend / Datos</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-4 text-center">
+                    <button class="btn btn-outline-primary" id="btnEquipo" type="button">
+                        Ver roles (demo)
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- PRODUCTO / PROYECTO -->
+        <section id="producto" class="py-5">
+            <div class="container">
+                <div class="row g-4 align-items-center">
+                    <div class="col-12 col-lg-6">
+                        <h2 class="fw-bold mb-2">Producto: TEKNOVATION</h2>
+                        <p class="text-secondary mb-3">
+                            Un e-commerce de computadoras y accesorios con una interfaz moderna y responsiva, con
+                            carrito,
+                            búsqueda, catálogo por categorías y flujo de compra simulado.
+                        </p>
+
+                        <div class="d-flex flex-wrap gap-2">
+                            <a class="btn btn-primary" href="#" id="btnAbrirDemo">Abrir demo (SweetAlert)</a>
+                            <a class="btn btn-outline-primary" href="/teknovation/"
+                                aria-label="Ir al sitio del ecommerce">Ir a
+                                teknovation</a>
+                        </div>
+
+                        <ul class="mt-3 text-secondary">
+                            <li>Catálogo + detalle de producto</li>
+                            <li>Carrito (agregar / eliminar)</li>
+                            <li>Checkout simulado</li>
+                            <li>Rol admin (gestión de productos)</li>
+                        </ul>
+                    </div>
+
+                    <div class="col-12 col-lg-6">
+                        <div class="p-4 bg-white border rounded-4 shadow-sm">
+                            <h3 class="h5 fw-bold mb-2">Dominios separados</h3>
+                            <p class="text-secondary mb-0">
+                                <strong>Triquitraque Studio</strong> (empresa) vive en un dominio independiente del
+                                <strong>e-commerce Teknovation</strong> (producto).
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACTO -->
+        <section id="contacto" class="py-5 bg-soft border-top">
+            <div class="container">
+                <div class="text-center mb-3">
+                    <h2 class="fw-bold">Contacto</h2>
+                    <p class="text-secondary mb-0">Formulario demo para mostrar interacción y feedback.</p>
+                </div>
+
+                <div class="row justify-content-center">
+                    <div class="col-12 col-lg-7">
+                        <form class="p-4 bg-white border rounded-4 shadow-sm" id="contactForm" novalidate>
+                            <div class="mb-3">
+                                <label class="form-label" for="name">Nombre</label>
+                                <input class="form-control" id="name" name="name" required minlength="2" />
+                                <div class="invalid-feedback">Por favor ingresa tu nombre (mínimo 2 caracteres).</div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label" for="email">Correo</label>
+                                <input class="form-control" id="email" name="email" type="email" required />
+                                <div class="invalid-feedback">Ingresa un correo válido.</div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label" for="msg">Mensaje</label>
+                                <textarea class="form-control" id="msg" name="msg" rows="4" required
+                                    minlength="10"></textarea>
+                                <div class="invalid-feedback">Escribe un mensaje (mínimo 10 caracteres).</div>
+                            </div>
+
+                            <button class="btn btn-primary w-100" type="submit">Enviar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-dark text-light">
+        <div class="container py-4">
+            <div class="d-flex flex-wrap align-items-center justify-content-between gap-2">
+                <div>
+                    <div class="fw-bold">Triquitraque Studio</div>
+                    <small class="text-secondary">Desarrollo web moderno • UX • Seguridad</small>
+                </div>
+                <small class="text-secondary">© 2026</small>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+    <!-- SweetAlert2 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- JS mínimo: sweetalert + validación bootstrap -->
+    <script>
+        // SweetAlert demo
+        document.getElementById("btnEquipo")?.addEventListener("click", () => {
+            Swal.fire({
+                icon: "info",
+                title: "Roles (Demo)",
+                html: `
+            <ul style="text-align:left;margin:0;padding-left:18px;">
+              <li><strong>Dylan</strong>: Frontend / UI</li>
+              <li><strong>Daniel</strong>: Arquitectura / Integración</li>
+              <li><strong>Alejandro</strong>: Backend / Datos</li>
+            </ul>
+          `,
+                confirmButtonText: "Ok",
+            });
+        });
+
+        document.getElementById("btnAbrirDemo")?.addEventListener("click", (e) => {
+            e.preventDefault();
+            Swal.fire({
+                icon: "success",
+                title: "TEKNOVATION (Demo)",
+                text: "Aquí puedes enlazar al dominio del ecommerce o abrir el prototipo navegable.",
+                confirmButtonText: "Perfecto",
+            });
+        });
+
+        // Validación Bootstrap (cliente) + SweetAlert2
+        const form = document.getElementById("contactForm");
+        form?.addEventListener("submit", (e) => {
+            e.preventDefault();
+
+            if (!form.checkValidity()) {
+                form.classList.add("was-validated");
+                Swal.fire({
+                    icon: "error",
+                    title: "Revisá el formulario",
+                    text: "Hay campos incompletos o inválidos.",
+                    confirmButtonText: "Ok",
+                });
+                return;
+            }
+
+            form.reset();
+            form.classList.remove("was-validated");
+
+            Swal.fire({
+                icon: "success",
+                title: "Mensaje enviado (Demo)",
+                text: "¡Gracias! Esto es una simulación para el prototipo.",
+                confirmButtonText: "Listo",
+            });
+        });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const navLinks = document.querySelectorAll('.navbar-nav .nav-link, .navbar-nav .btn');
+    const menuColapsable = document.getElementById('navMenu');
+    
+    // Inicializamos el componente de Bootstrap
+    const bsCollapse = new bootstrap.Collapse(menuColapsable, { toggle: false });
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            // Cerramos solo si el menú está abierto
+            if (menuColapsable.classList.contains('show')) {
+                bsCollapse.hide();
+            }
+        });
+    });
+});
+    </script>
+</body>
+
+</html>

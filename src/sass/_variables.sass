@@ -1,0 +1,93 @@
+// ============================================================
+// _variables.sass
+// Teknovation Design System — Sass Variables
+// Mirrors CSS custom properties and sets Bootstrap overrides
+// ============================================================
+
+// --- Brand Colors ---
+$primary:            #00b8db
+$primary-dark:       #009bb8
+$primary-light:      #33c6e3
+$secondary:          #9945ff
+$secondary-dark:     #7a30e0
+
+// --- Semantic Colors ---
+$success:            #00c853
+$danger:             #ff3d00
+$warning:            #ffab00
+$info:               $primary
+
+// --- Neutrals ---
+$dark:               #111111
+$gray-900:           #1a1a1a
+$gray-700:           #444444
+$gray-500:           #666666
+$gray-300:           #999999
+$gray-100:           #f7f7f7
+$white:              #ffffff
+
+// --- Text ---
+$text-primary:       $dark
+$text-secondary:     $gray-500
+$text-light:         $gray-300
+
+// --- Backgrounds ---
+$bg-primary:         $white
+$bg-secondary:       $gray-100
+$bg-dark:            $dark
+
+// --- Borders ---
+$border-color:       #e0e0e0
+$border-radius-sm:   4px
+$border-radius-md:   8px
+$border-radius-lg:   12px
+$border-radius-xl:   16px
+$border-radius-pill: 9999px
+
+// --- Typography ---
+$font-family:        'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif
+$font-weight-light:  300
+$font-weight-normal: 400
+$font-weight-medium: 500
+$font-weight-semi:   600
+$font-weight-bold:   700
+$font-weight-black:  900
+
+// --- Spacing Scale (used with @each loop) ---
+$spacers: (   'xs':  0.5rem,   'sm':  1rem,   'md':  1.5rem,   'lg':  2rem,   'xl':  3rem,   'xxl': 4rem )
+
+// --- Breakpoints ---
+$breakpoints: (   'xs':  480px,   'sm':  576px,   'md':  768px,   'lg':  1024px,   'xl':  1280px,   'xxl': 1440px )
+
+// --- Shadows ---
+$shadow-sm:  0 1px 3px rgba(0, 0, 0, 0.06)
+$shadow-md:  0 4px 6px rgba(0, 0, 0, 0.07)
+$shadow-lg:  0 10px 15px rgba(0, 0, 0, 0.1)
+$shadow-xl:  0 20px 25px rgba(0, 0, 0, 0.15)
+
+// --- Z-Index Scale ---
+$z-header:   1000
+$z-drawer:   1045
+$z-modal:    1050
+$z-overlay:  1040
+$z-toast:    11000
+
+// --- Transitions ---
+$transition-fast:   150ms ease
+$transition-base:   250ms ease
+$transition-slow:   350ms ease
+
+// --- Container ---
+$container-max:  1280px
+$container-pad:  1.5rem
+
+// Bootstrap Variable Overrides
+$bs-primary:              $primary
+$bs-secondary:            $secondary
+$bs-success:              $success
+$bs-danger:               $danger
+$bs-warning:              $warning
+$bs-font-family-base:     $font-family
+$bs-border-radius:        $border-radius-md
+$bs-border-radius-lg:     $border-radius-lg
+$bs-border-radius-xl:     $border-radius-xl

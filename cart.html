@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Carrito de compras - Teknovation" />
+    <title>Mi Carrito | Teknovation</title>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet" />
+    <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="dist/css/main.css" />
+  </head>
+  <body class="cart-page">
+
+    <!-- Header -->
+    <header class="header">
+      <nav class="header-nav">
+        <div class="container">
+          <div class="nav-content">
+            <div class="nav-left">
+              <a href="index.html" class="logo">
+                <img src="./assets/logo-teknovation.png" alt="Teknovation" height="48" />
+              </a>
+              <ul class="nav-menu">
+                <li><a href="shop.html">Tienda</a></li>
+                <li class="nav-highlight"><a href="shop.html">Ofertas</a></li>
+              </ul>
+            </div>
+
+            <div class="header-actions">
+              <button class="icon-btn" id="searchBtn" aria-label="Buscar"
+                      data-bs-toggle="modal" data-bs-target="#searchModal">
+                <span class="material-icons">search</span>
+              </button>
+              <button class="icon-btn" id="wishlistBtn" aria-label="Favoritos">
+                <span class="material-icons">favorite_border</span>
+              </button>
+              <a href="auth.html" class="icon-btn" aria-label="Mi cuenta" id="accountBtn">
+                <span class="material-icons">person_outline</span>
+              </a>
+              <button class="icon-btn cart-btn active-page" aria-label="Carrito"
+                      data-bs-toggle="offcanvas" data-bs-target="#cartDrawer"
+                      aria-controls="cartDrawer">
+                <span class="material-icons">shopping_cart</span>
+                <span class="cart-count">0</span>
+              </button>
+            </div>
+
+            <button class="mobile-menu-toggle" aria-label="Menú">
+              <span class="material-icons">menu</span>
+            </button>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+      <div class="container">
+        <nav aria-label="breadcrumb">
+          <ol>
+            <li><a href="index.html">Inicio</a></li>
+            <li aria-current="page">Mi Carrito</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Cart Section -->
+    <section class="cart-section">
+      <div class="container">
+
+        <!-- Page header -->
+        <div class="cart-page-title">
+          <h1>
+            Mi Carrito
+            <span class="cart-item-count" id="cartPageTitle"></span>
+          </h1>
+          <button class="btn btn-secondary" id="clearCartBtn" style="display:none">
+            <span class="material-icons">delete_sweep</span>
+            Vaciar carrito
+          </button>
+        </div>
+
+        <!-- Empty Cart State -->
+        <div class="cart-empty" id="cartEmpty" style="display:none">
+          <div class="cart-empty__icon">
+            <span class="material-icons">shopping_cart</span>
+          </div>
+          <h2>Tu carrito está vacío</h2>
+          <p>Añade productos para comenzar tu compra</p>
+          <a href="shop.html" class="btn btn-primary">
+            <span class="material-icons">storefront</span>
+            Explorar Productos
+          </a>
+        </div>
+
+        <!-- Cart Content (Bootstrap grid) -->
+        <div class="row g-4" id="cartContent" style="display:none">
+
+          <!-- Left: Cart Items -->
+          <div class="col-lg-8">
+            <div class="cart-items-panel">
+              <div class="table-responsive">
+                <table class="table cart-table" id="cartTable" aria-label="Productos en tu carrito">
+                  <thead>
+                    <tr>
+                      <th scope="col">Producto</th>
+                      <th scope="col">Precio</th>
+                      <th scope="col">Cantidad</th>
+                      <th scope="col">Total</th>
+                      <th scope="col"><span class="visually-hidden">Acciones</span></th>
+                    </tr>
+                  </thead>
+                  <tbody id="cartTableBody">
+                    <!-- Rendered by JS -->
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- Continue shopping -->
+              <div class="cart-continue">
+                <a href="shop.html">
+                  <span class="material-icons">arrow_back</span>
+                  Seguir comprando
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Order Summary -->
+          <div class="col-lg-4">
+            <div class="order-summary-card">
+              <h2 class="order-summary-card__title">Resumen del Pedido</h2>
+
+              <!-- Promo code -->
+              <div class="order-summary-card__coupon">
+                <input type="text" id="couponInput"
+                       placeholder="GAMING10"
+                       aria-label="Código de descuento"
+                       maxlength="20" />
+                <button class="btn btn-secondary" id="applyCoupon" type="button">
+                  Aplicar
+                </button>
+              </div>
+              <div class="coupon-feedback" id="couponFeedback" aria-live="polite"></div>
+
+              <!-- Promo: 30€ on 2+ items -->
+              <div class="promo-alert" id="promoAlert" style="display:none">
+                <span class="material-icons">card_giftcard</span>
+                <p id="promoAlertText">Añade 1 artículo más y obtén 30€ de descuento</p>
+              </div>
+
+              <!-- Summary lines -->
+              <div class="summary-lines" role="list" aria-label="Desglose del pedido">
+                <div class="order-summary-card__row" role="listitem">
+                  <span>Subtotal (<span id="summaryItemCount">0</span> art.)</span>
+                  <span id="summarySubtotal">0,00 €</span>
+                </div>
+                <div class="order-summary-card__row order-summary-card__row--savings"
+                     id="discountRow" style="display:none" role="listitem">
+                  <span>Descuento aplicado</span>
+                  <span id="summaryDiscount">-0,00 €</span>
+                </div>
+                <div class="order-summary-card__row" role="listitem">
+                  <span>Envío</span>
+                  <span id="summaryShipping">Calculando...</span>
+                </div>
+                <div class="order-summary-card__row order-summary-card__row--total" role="listitem">
+                  <span>Total</span>
+                  <span id="summaryTotal">0,00 €</span>
+                </div>
+              </div>
+
+              <button class="btn btn-primary btn-checkout" id="checkoutBtn" type="button">
+                <span class="material-icons">lock</span>
+                Finalizar Compra
+              </button>
+
+              <!-- Trust signals -->
+              <div class="cart-trust" aria-label="Garantías de compra">
+                <div>
+                  <span class="material-icons">verified_user</span>
+                  Pago 100% seguro
+                </div>
+                <div>
+                  <span class="material-icons">assignment_return</span>
+                  Devolución gratuita 30 días
+                </div>
+                <div>
+                  <span class="material-icons">local_shipping</span>
+                  Envío gratis en pedidos +39€
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /.row -->
+      </div><!-- /.container -->
+    </section>
+
+    <!-- Recommended Products -->
+    <section class="related-products" id="recommendedSection" style="display:none">
+      <div class="container">
+        <h2 class="section-title">También te Puede Gustar</h2>
+        <div class="products-carousel" id="recommendedProducts"></div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-column">
+            <h4>Teknovation</h4>
+            <ul>
+              <li><a href="#">Nuestra historia</a></li>
+              <li><a href="#">Empleo</a></li>
+              <li><a href="#">Inversores</a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Sostenibilidad</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4>Ver Productos</h4>
+            <ul>
+              <li><a href="shop.html">Ratones Gaming</a></li>
+              <li><a href="shop.html">Teclados Gaming</a></li>
+              <li><a href="shop.html">Auriculares</a></li>
+              <li><a href="shop.html">Alfombrillas</a></li>
+              <li><a href="shop.html">Accesorios</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4>Atención al Cliente</h4>
+            <ul>
+              <li><a href="#">Asistencia</a></li>
+              <li><a href="#">Contacto</a></li>
+              <li><a href="#">Política de devoluciones</a></li>
+              <li><a href="#">Envíos</a></li>
+              <li><a href="#">FAQ</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4>Síguenos</h4>
+            <div class="social-links">
+              <a href="#" aria-label="Instagram"><span class="material-icons">photo_camera</span></a>
+              <a href="#" aria-label="Twitter"><span class="material-icons">chat</span></a>
+              <a href="#" aria-label="Facebook"><span class="material-icons">public</span></a>
+              <a href="#" aria-label="YouTube"><span class="material-icons">play_circle</span></a>
+            </div>
+            <div class="newsletter">
+              <h5>Newsletter</h5>
+              <form class="newsletter-form">
+                <input type="email" placeholder="Tu email" required />
+                <button type="submit" class="btn btn-primary">
+                  <span class="material-icons">send</span>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2026 Teknovation. Todos los derechos reservados.</p>
+          <div class="footer-legal">
+            <a href="#">Política de Privacidad</a>
+            <a href="#">Términos de Servicio</a>
+            <a href="#">Cookies</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Checkout Success Modal -->
+    <div class="modal fade checkout-success-modal" id="checkoutSuccessModal" tabindex="-1"
+         aria-labelledby="checkoutSuccessTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-body p-4 p-md-5">
+            <span class="material-icons checkout-success-modal__icon">check_circle</span>
+            <h2 id="checkoutSuccessTitle" style="font-weight: 700; margin-bottom: 0.5rem;">
+              ¡Pedido realizado!
+            </h2>
+            <p style="color: var(--text-secondary);">
+              Gracias por tu compra. Recibirás un email de confirmación en breve.
+            </p>
+            <div class="checkout-success-modal__order-number" id="orderNumber">
+              #TKN-00000
+            </div>
+            <div style="margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem;">
+              <a href="index.html" class="btn btn-primary" data-bs-dismiss="modal">
+                <span class="material-icons">home</span>
+                Ir a Inicio
+              </a>
+              <a href="shop.html" class="btn btn-secondary" data-bs-dismiss="modal">
+                Seguir Comprando
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

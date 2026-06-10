@@ -1,0 +1,152 @@
+:root {
+    /* Triquitraque: identidad más “studio” (enérgica - Rojo/Naranja/Amarillo) */
+    --tri-brand: #EA4134;
+    /* Main Red */
+    --tri-brand-2: #A52E28;
+    /* Secondary Dark Red */
+    --tri-accent: #F4B952;
+    /* Orange Accent */
+    --tri-accent-2: #FFE255;
+    /* Yellow Accent */
+    --tri-soft: rgba(234, 65, 52, 0.08);
+    /* Main Red soft */
+
+    --font-body: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    --font-heading: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+body {
+    font-family: var(--font-body);
+}
+
+.brand-title {
+    font-family: var(--font-heading);
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    color: var(--tri-brand);
+}
+
+.brand-tag {
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+}
+
+/* Hero */
+.hero {
+    background: linear-gradient(135deg, rgba(234, 65, 52, 0.16), rgba(244, 185, 82, 0.12));
+}
+
+.hero-mock {
+    height: 320px;
+}
+
+/* Soft background section */
+.bg-soft {
+    background: var(--tri-soft);
+}
+
+/* Ajuste del botón primary para que se sienta “Triquitraque” */
+.btn-primary {
+    --bs-btn-bg: var(--tri-brand);
+    --bs-btn-border-color: var(--tri-brand);
+    --bs-btn-hover-bg: var(--tri-brand-2);
+    --bs-btn-hover-border-color: var(--tri-brand-2);
+}
+
+/* Outline primary */
+.btn-outline-primary {
+    --bs-btn-color: var(--tri-brand);
+    --bs-btn-border-color: var(--tri-brand);
+    /* Main border color */
+    --bs-btn-hover-bg: rgba(234, 65, 52, 0.12);
+    /* Main color subtle background */
+    --bs-btn-hover-border-color: var(--tri-brand);
+    --bs-btn-hover-color: var(--tri-brand);
+}
+
+/* Cards hover suave */
+.card {
+    transition: transform 0.15s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    border-color: var(--tri-brand);
+    /* Optional: add subtle border highlight on hover */
+}
+
+/* --- AJUSTE DE SCROLL PARA TÍTULOS --- */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px; 
+}
+
+/* --- MENÚ MÓVIL PANTALLA COMPLETA (VERSIÓN STUDIO) --- */
+/* --- MENÚ MÓVIL PANTALLA COMPLETA (VERSIÓN STUDIO) --- */
+@media (max-width: 991.98px) {
+    .navbar-collapse {
+        position: fixed;
+        top: -100%; /* Empieza arriba */
+        left: 0;
+        right: 0;
+        height: 100vh;
+        background-color: white;
+        z-index: 1040;
+        display: flex !important;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        /* Transición suave de entrada y salida */
+        transition: top 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+                    opacity 0.3s ease, 
+                    visibility 0.3s;
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    .navbar-collapse.show {
+        top: 0;
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .navbar-nav {
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-item {
+        margin: 1rem 0;
+        /* Animación opcional de entrada para los links */
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.3s ease;
+    }
+
+    /* Cuando el menú se muestra, los items suben suavemente */
+    .navbar-collapse.show .nav-item {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Retrasos en cascada para un efecto más pro */
+    .navbar-collapse.show .nav-item:nth-child(1) { transition-delay: 0.1s; }
+    .navbar-collapse.show .nav-item:nth-child(2) { transition-delay: 0.15s; }
+    .navbar-collapse.show .nav-item:nth-child(3) { transition-delay: 0.2s; }
+    .navbar-collapse.show .nav-item:nth-child(4) { transition-delay: 0.25s; }
+    .navbar-collapse.show .nav-item:nth-child(5) { transition-delay: 0.3s; }
+    .navbar-collapse.show .nav-item:nth-child(6) { transition-delay: 0.35s; }
+
+    .nav-link {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: var(--tri-brand) !important;
+    }
+
+    .navbar-toggler {
+        position: relative;
+        z-index: 1050; /* Por encima del fondo blanco del menú */
+        border: none;
+    }
+}
