@@ -30,7 +30,7 @@
   <body class="auth-page">
     <!-- Header -->
     <header class="header">
-      <nav class="header-nav">
+      <nav class="header-nav" aria-label="Navegación principal"></nav>
         <div class="container">
           <div class="nav-content">
             <div class="nav-left">
@@ -448,14 +448,13 @@
                         required
                       />
                       <span>
-                        Acepto los
-                        <a href="#" onclick="return false;"
-                          >Términos de Servicio</a
-                        >
-                        y la
-                        <a href="#" onclick="return false;"
-                          >Política de Privacidad</a
-                        >
+                       <button type="button" class="link-btn">
+  Términos de Servicio
+</button>
+
+<button type="button" class="link-btn">
+  Política de Privacidad
+</button>
                       </span>
                     </label>
                     <div class="field-error" id="termsError" role="alert"></div>
