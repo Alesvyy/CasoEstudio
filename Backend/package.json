@@ -4,9 +4,9 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-  "start": "node server.js",
-  "dev": "nodemon server.js"
-
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "analyze": "sonar-scanner -Dsonar.token=93d919857e6db9a695d85673120346bd2b9ed5a7"
   },
   "keywords": [],
   "author": "",
@@ -19,7 +19,7 @@
     "mongoose": "^9.3.3"
   },
   "devDependencies": {
-    "nodemon": "^3.1.14"
+    "nodemon": "^3.1.14",
+    "sonar-scanner": "^3.1.0"
   }
-  
 }
