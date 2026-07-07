@@ -1,0 +1,13 @@
+config\ApiConfig.class
+tests\CarritoTest.class
+tests\OrdenTest.class
+services\CarritoService.class
+services\OrdenService.class
+services\ProductoService.class
+base\BaseTest.class
+services\CategoriaService.class
+data\TestData.class
+services\UsuarioService.class
+tests\ProductoTest.class
+tests\UsuarioTest.class
+tests\CategoriaTest.class

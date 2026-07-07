@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="25" passed="25" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2026-07-07T14:50:49 CST" name="Surefire suite" finished-at="2026-07-07T14:50:55 CST" duration-ms="5319">
+    <groups>
+    </groups>
+    <test started-at="2026-07-07T14:50:49 CST" name="Surefire test" finished-at="2026-07-07T14:50:55 CST" duration-ms="5319">
+      <class name="tests.CarritoTest">
+        <test-method is-config="true" signature="setup()[pri:0, instance:tests.CarritoTest@6193932a]" started-at="2026-07-07T14:50:49 CST" name="setup" finished-at="2026-07-07T14:50:50 CST" duration-ms="220" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="getCarritos()[pri:1, instance:tests.CarritoTest@6193932a]" started-at="2026-07-07T14:50:50 CST" name="getCarritos" finished-at="2026-07-07T14:50:50 CST" duration-ms="714" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getCarritos -->
+        <test-method signature="postCarritoValido()[pri:2, instance:tests.CarritoTest@6193932a]" started-at="2026-07-07T14:50:50 CST" name="postCarritoValido" finished-at="2026-07-07T14:50:51 CST" duration-ms="450" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- postCarritoValido -->
+        <test-method signature="postCarritoInvalido()[pri:3, instance:tests.CarritoTest@6193932a]" started-at="2026-07-07T14:50:51 CST" name="postCarritoInvalido" finished-at="2026-07-07T14:50:51 CST" duration-ms="12" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- postCarritoInvalido -->
+        <test-method signature="putCarrito()[pri:4, instance:tests.CarritoTest@6193932a]" started-at="2026-07-07T14:50:51 CST" name="putCarrito" finished-at="2026-07-07T14:50:51 CST" duration-ms="286" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- putCarrito -->
+        <test-method signature="deleteCarrito()[pri:5, instance:tests.CarritoTest@6193932a]" started-at="2026-07-07T14:50:51 CST" name="deleteCarrito" finished-at="2026-07-07T14:50:51 CST" duration-ms="188" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- deleteCarrito -->
+      </class> <!-- tests.CarritoTest -->
+      <class name="tests.OrdenTest">
+        <test-method is-config="true" signature="setup()[pri:0, instance:tests.OrdenTest@5dd6264]" started-at="2026-07-07T14:50:52 CST" name="setup" finished-at="2026-07-07T14:50:52 CST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="getOrdenes()[pri:1, instance:tests.OrdenTest@5dd6264]" started-at="2026-07-07T14:50:52 CST" name="getOrdenes" finished-at="2026-07-07T14:50:52 CST" duration-ms="183" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getOrdenes -->
+        <test-method signature="postOrdenValida()[pri:2, instance:tests.OrdenTest@5dd6264]" started-at="2026-07-07T14:50:52 CST" name="postOrdenValida" finished-at="2026-07-07T14:50:52 CST" duration-ms="110" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- postOrdenValida -->
+        <test-method signature="postOrdenInvalida()[pri:3, instance:tests.OrdenTest@5dd6264]" started-at="2026-07-07T14:50:52 CST" name="postOrdenInvalida" finished-at="2026-07-07T14:50:52 CST" duration-ms="6" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- postOrdenInvalida -->
+        <test-method signature="putOrden()[pri:4, instance:tests.OrdenTest@5dd6264]" started-at="2026-07-07T14:50:52 CST" name="putOrden" finished-at="2026-07-07T14:50:53 CST" duration-ms="283" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- putOrden -->
+        <test-method signature="deleteOrden()[pri:5, instance:tests.OrdenTest@5dd6264]" started-at="2026-07-07T14:50:53 CST" name="deleteOrden" finished-at="2026-07-07T14:50:53 CST" duration-ms="183" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- deleteOrden -->
+      </class> <!-- tests.OrdenTest -->
+      <class name="tests.UsuarioTest">
+        <test-method signature="getUsuarios()[pri:1, instance:tests.UsuarioTest@12e61fe6]" started-at="2026-07-07T14:50:54 CST" name="getUsuarios" finished-at="2026-07-07T14:50:54 CST" duration-ms="83" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getUsuarios -->
+        <test-method is-config="true" signature="setup()[pri:0, instance:tests.UsuarioTest@12e61fe6]" started-at="2026-07-07T14:50:54 CST" name="setup" finished-at="2026-07-07T14:50:54 CST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="postUsuarioValido()[pri:2, instance:tests.UsuarioTest@12e61fe6]" started-at="2026-07-07T14:50:54 CST" name="postUsuarioValido" finished-at="2026-07-07T14:50:54 CST" duration-ms="164" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- postUsuarioValido -->
+        <test-method signature="postUsuarioInvalido()[pri:3, instance:tests.UsuarioTest@12e61fe6]" started-at="2026-07-07T14:50:54 CST" name="postUsuarioInvalido" finished-at="2026-07-07T14:50:54 CST" duration-ms="83" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- postUsuarioInvalido -->
+        <test-method signature="putUsuario()[pri:4, instance:tests.UsuarioTest@12e61fe6]" started-at="2026-07-07T14:50:54 CST" name="putUsuario" finished-at="2026-07-07T14:50:54 CST" duration-ms="356" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- putUsuario -->
+        <test-method signature="deleteUsuario()[pri:5, instance:tests.UsuarioTest@12e61fe6]" started-at="2026-07-07T14:50:54 CST" name="deleteUsuario" finished-at="2026-07-07T14:50:55 CST" duration-ms="283" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- deleteUsuario -->
+      </class> <!-- tests.UsuarioTest -->
+      <class name="tests.ProductoTest">
+        <test-method is-config="true" signature="setup()[pri:0, instance:tests.ProductoTest@51e5fc98]" started-at="2026-07-07T14:50:53 CST" name="setup" finished-at="2026-07-07T14:50:53 CST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="getProductos()[pri:1, instance:tests.ProductoTest@51e5fc98]" started-at="2026-07-07T14:50:53 CST" name="getProductos" finished-at="2026-07-07T14:50:53 CST" duration-ms="171" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getProductos -->
+        <test-method signature="postProductoValido()[pri:2, instance:tests.ProductoTest@51e5fc98]" started-at="2026-07-07T14:50:53 CST" name="postProductoValido" finished-at="2026-07-07T14:50:53 CST" duration-ms="88" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- postProductoValido -->
+        <test-method signature="postProductoInvalido()[pri:3, instance:tests.ProductoTest@51e5fc98]" started-at="2026-07-07T14:50:53 CST" name="postProductoInvalido" finished-at="2026-07-07T14:50:53 CST" duration-ms="4" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- postProductoInvalido -->
+        <test-method signature="putProducto()[pri:4, instance:tests.ProductoTest@51e5fc98]" started-at="2026-07-07T14:50:53 CST" name="putProducto" finished-at="2026-07-07T14:50:53 CST" duration-ms="272" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- putProducto -->
+        <test-method signature="deleteProducto()[pri:5, instance:tests.ProductoTest@51e5fc98]" started-at="2026-07-07T14:50:53 CST" name="deleteProducto" finished-at="2026-07-07T14:50:54 CST" duration-ms="182" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- deleteProducto -->
+      </class> <!-- tests.ProductoTest -->
+      <class name="tests.CategoriaTest">
+        <test-method is-config="true" signature="setup()[pri:0, instance:tests.CategoriaTest@159f197]" started-at="2026-07-07T14:50:51 CST" name="setup" finished-at="2026-07-07T14:50:51 CST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="getCategorias()[pri:1, instance:tests.CategoriaTest@159f197]" started-at="2026-07-07T14:50:51 CST" name="getCategorias" finished-at="2026-07-07T14:50:51 CST" duration-ms="85" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getCategorias -->
+        <test-method signature="postCategoriaValida()[pri:2, instance:tests.CategoriaTest@159f197]" started-at="2026-07-07T14:50:51 CST" name="postCategoriaValida" finished-at="2026-07-07T14:50:51 CST" duration-ms="168" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- postCategoriaValida -->
+        <test-method signature="postCategoriaInvalida()[pri:3, instance:tests.CategoriaTest@159f197]" started-at="2026-07-07T14:50:51 CST" name="postCategoriaInvalida" finished-at="2026-07-07T14:50:52 CST" duration-ms="85" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- postCategoriaInvalida -->
+        <test-method signature="putCategoria()[pri:4, instance:tests.CategoriaTest@159f197]" started-at="2026-07-07T14:50:52 CST" name="putCategoria" finished-at="2026-07-07T14:50:52 CST" duration-ms="355" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- putCategoria -->
+        <test-method signature="deleteCategoria()[pri:5, instance:tests.CategoriaTest@159f197]" started-at="2026-07-07T14:50:52 CST" name="deleteCategoria" finished-at="2026-07-07T14:50:52 CST" duration-ms="269" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- deleteCategoria -->
+      </class> <!-- tests.CategoriaTest -->
+    </test> <!-- Surefire test -->
+  </suite> <!-- Surefire suite -->
+</testng-results>
