@@ -1,0 +1,6 @@
+nombre,ruta
+Productos,/api/productos
+Categorias,/api/categorias
+Usuarios,/api/usuarios
+Carritos,/api/carritos
+Ordenes,/api/ordenes
